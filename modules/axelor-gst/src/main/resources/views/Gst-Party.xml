@@ -23,7 +23,6 @@
       <field name="gstin" colSpan="12"/>
       <field name="contact" widget="editor" colSpan="12"/>
       <field name="address" widget="editor" colSpan="12"/>
-
     </panel>
   </form>
 

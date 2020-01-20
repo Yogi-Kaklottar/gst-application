@@ -12,7 +12,7 @@
       <string name="secondaryemail"/>
       <string name="primaryphone"/>
       <string name="secondaryphone"/>
-      <many-to-one name="company" ref="com.axelor.gst.db.Company"></many-to-one>
-      <many-to-one name="party" ref="com.axelor.gst.db.Party"></many-to-one>
+<!--       <many-to-one name="company" ref="com.axelor.gst.db.Company"></many-to-one> -->
+<!--       <many-to-one name="party" ref="com.axelor.gst.db.Party"></many-to-one> -->
   </entity>
 </domain-models>

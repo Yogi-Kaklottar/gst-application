@@ -7,11 +7,11 @@
   <module name="gst" package="com.axelor.gst.db" />
   <entity name="Bankaccount" cacheable="true">
     <string name="bank" required="true"/>
-    <string name="accountno" required="true"/>
+    <string name="accountno" required="true" />
     <string name="ifsc" required="true"/>
-    <string name="type" default="current"/>
+    <string name="type" default="current" selection="gst.bankaccount.type.select"/>
     <string  name="address"/>
-    <many-to-one name="company" ref="com.axelor.gst.db.Company"></many-to-one>
+<!--     <many-to-one name="company" ref="com.axelor.gst.db.Company"></many-to-one> -->
   </entity>
 
 </domain-models>

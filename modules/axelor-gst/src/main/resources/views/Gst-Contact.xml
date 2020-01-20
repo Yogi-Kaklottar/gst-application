@@ -10,8 +10,7 @@
   <field name="secondaryemail" />
   <field name="primaryphone" />
   <field name="secondaryphone" />
-  <field name="company" />
-  <field name="party" />
+
   </grid>
 
   <form name="gst-contact-form" title="Gst Contact List"   model="com.axelor.gst.db.Contact">
@@ -22,8 +21,7 @@
     <field name="secondaryemail" />
     <field name="primaryphone" />
     <field name="secondaryphone" />
-    <field name="company" />
-    <field name="party" />
+
     </panel>
   </form>
 

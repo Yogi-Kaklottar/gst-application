@@ -15,5 +15,5 @@
       <field name="code"></field>
       <field name="gstrate" colSpan="12"></field>
     </panel>
-  </form>  
+  </form>
 </object-views>

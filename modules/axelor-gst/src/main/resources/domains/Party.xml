@@ -11,7 +11,7 @@
     <boolean name="customer"/>
     <boolean name="supplier"/>
     <string name="gstin" min="15" max="15"></string>
-    <one-to-many name="contact" ref="com.axelor.gst.db.Contact" mappedBy="party" />
+    <one-to-many name="contact" ref="com.axelor.gst.db.Contact"  />
     <one-to-many name="address" ref="com.axelor.gst.db.Address" mappedBy="party"/>
   </entity>
 </domain-models>

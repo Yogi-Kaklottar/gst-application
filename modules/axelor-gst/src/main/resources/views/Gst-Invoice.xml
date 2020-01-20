@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <grid name="gst-invoice-grid" title="Invoice" model="com.axelor.gst.db.Invoice">
+	<field name="status" />
+	<field name="company" />
+	<field name="reference" />
+	<field name="curruntdate" />
+	<field name="priority" />
+	<field name="party" />
+	<field name="partycontact" />
+	<field name="invoiceaddress" />
+	<field name="shippingaddress" />
+	<field name="useinvoiceaddressasshipping" />
+	<field name="netamount" />
+	<field name="netigst" />
+	<field name="netcsgst" />
+	<field name="netsgst" />
+	<field name="grossamount" />
+	<field name="invoiceitem" />
+      
+  </grid>
+  
+  <form name="gst-invoice-invoice-form" title="Invoiceline"   model="com.axelor.gst.db.Invoice" >
+    <panel title="Overview">
+     <field name="status" />
+	<field name="company" />
+	<field name="reference" />
+	<field name="curruntdate" />
+	<field name="priority" />
+	<field name="party" />
+	<field name="partycontact" />
+	<field name="invoiceaddress" />
+	<field name="shippingaddress" />
+	<field name="useinvoiceaddressasshipping" />
+	<field name="netamount" />
+	<field name="netigst" />
+	<field name="netcsgst" />
+	<field name="netsgst" />
+	<field name="grossamount" />
+	<field name="invoiceitem" />
+    </panel>
+    </form>
+  </object-views>
+  

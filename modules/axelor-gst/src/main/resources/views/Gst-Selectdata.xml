@@ -28,4 +28,9 @@
         <option value="Others">Others</option>
     </selection>
 
+<!-- bank account detail type -->
+    <selection name="gst.bankaccount.type.select">
+      <option value="current">current</option>
+        <option value="saving">saving</option>
+    </selection>
 </object-views>
