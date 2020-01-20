@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+
+  <selection name="selection-address-type">
+    <option value="default">default</option>
+    <option value="invoice">invoice</option>
+    <option value="shipping">shipping</option>
+    <option value="other">other</option>
+
+  </selection>
+
+
+</object-views>

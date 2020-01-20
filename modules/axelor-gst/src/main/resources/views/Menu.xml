@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <menuitem name="menu-gst" order="-100" title="Gst" icon="fa-users" icon-background="blue" />
+  
+  
+  <menuitem name="menu-gst-party" order="-100" title="party"/>
+  
+  <menuitem name="menu-gst-party-configuration" order="-100" title="configuration"/>
+  
+  
+    <menuitem title="Address" name="gst-party-configuration-address" parent="menu-gst-party-configuration" action="address.all" tag-style="important" />
+  <action-view name="address.all" model="com.axelor.gst.db.Address" title="Address">
+    <view type="grid" name="address-grid" />
+    <view type="form" name="address-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+  
+    <menuitem title="city" name="gst-party-configuration-city" parent="menu-gst-party-configuration" action="city.all" tag-style="important" />
+  <action-view name="city.all" model="com.axelor.gst.db.City" title="City">
+    <view type="grid" name="city-grid" />
+    <view type="form" name="city-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+  
+  
+   <menuitem title="State" name="gst-party-configuration-state" parent="menu-gst-party-configuration" action="state.all" tag-style="important" />
+  <action-view name="state.all" model="com.axelor.gst.db.State" title="State">
+    <view type="grid" name="state-grid" />
+    <view type="form" name="state-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+  
+ 
+
+  <menuitem title="Country" name="gst-party-configuration-country" parent="menu-gst-party-configuration" action="country.all" tag-style="important" />
+  <action-view name="country.all" model="com.axelor.gst.db.Country" title="Country">
+    <view type="grid" name="country-grid" />
+    <view type="form" name="country-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+ 
+
+
+
+
+ 
+
+ </object-views>
