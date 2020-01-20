@@ -1,16 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <grid name="city-grid" title="city List"
-    model="com.axelor.gst.db.City">
+  <grid name="gst-configuration-city-grid" title="city List"   model="com.axelor.gst.db.City">
     <field name="name"></field>
     <field name="state"></field>
     <field name="country"></field>
   </grid>
 
-  <form name="city-form" title="city list"
-    model="com.axelor.gst.db.City">
+  <form name="gst-configuration-city-form" title="city list"   model="com.axelor.gst.db.City">
     <panel title="Overview">
       <field name="country"></field>
       <field name="state"></field>

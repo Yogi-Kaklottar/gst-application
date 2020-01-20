@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <grid name="gst-contact-grid" title="Gst Contact List" model="com.axelor.gst.db.Contact">
+     <field name="name" />
+  <field name="type" />
+  <field name="primaryemail" />
+  <field name="secondaryemail" />
+  <field name="primaryphone" />
+  <field name="secondaryphone" />
+  <field name="company" />
+  <field name="party" />
+  </grid>
+
+  <form name="gst-contact-form" title="Gst Contact List"   model="com.axelor.gst.db.Contact">
+    <panel title="Overview">
+    <field name="name" />
+    <field name="type" />
+    <field name="primaryemail" />
+    <field name="secondaryemail" />
+    <field name="primaryphone" />
+    <field name="secondaryphone" />
+    <field name="company" />
+    <field name="party" />
+    </panel>
+  </form>
+
+
+
+
+</object-views>

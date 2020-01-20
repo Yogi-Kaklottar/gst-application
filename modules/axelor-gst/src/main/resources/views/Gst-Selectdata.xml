@@ -3,14 +3,29 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
-
-  <selection name="selection-address-type">
+<!-- Address related field -->
+  <selection name="gst.address.type.select">
     <option value="default">default</option>
     <option value="invoice">invoice</option>
     <option value="shipping">shipping</option>
     <option value="other">other</option>
-
   </selection>
 
+
+<!--   Party Related Field -->
+
+  <selection name="gst.party.type.select">
+    <option value="Company">Company</option>
+    <option value="Individual">Individual</option>
+  </selection>
+
+
+<!--   contact related field -->
+
+  <selection name="gst.contact.type.select">
+      <option value="Primary">Primary</option>
+        <option value="Secondary">Secondary</option>
+        <option value="Others">Others</option>
+    </selection>
 
 </object-views>

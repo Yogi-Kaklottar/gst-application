@@ -7,7 +7,7 @@
   <module name="gst" package="com.axelor.gst.db" />
 
   <entity name="Address" cacheable="true">
-    <string name="type" required="true"  selection="selection-address-type"/>
+    <string name="type" required="true"  selection="gst.address.type.select"/>
     <string name="line1" required="true" />
     <string name="line2" />
     <many-to-one name="city" ref="com.axelor.gst.db.City"/>

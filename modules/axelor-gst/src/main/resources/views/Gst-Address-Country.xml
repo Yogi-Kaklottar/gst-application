@@ -2,13 +2,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <grid name="country-grid" title="country List"
-    model="com.axelor.gst.db.Country">
+  <grid name="gst-configuration-country-grid" title="country List" model="com.axelor.gst.db.Country">
     <field name="name"></field>
   </grid>
 
-  <form name="country-form" title="country list"
-    model="com.axelor.gst.db.Country">
+  <form name="gst-configuration-country-form" title="country list" model="com.axelor.gst.db.Country">
     <panel title="Overview">
       <field name="name" colSpan="12"></field>
     </panel>

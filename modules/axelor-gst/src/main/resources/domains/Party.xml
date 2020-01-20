@@ -7,7 +7,7 @@
   <module name="gst" package="com.axelor.gst.db" />
   <entity name="Party" cacheable="true">
     <string name="name" required="true"></string>
-    <string name="type" required="true" default="Company"></string>
+    <string name="type" required="true" default="Company" selection="gst.party.type.select"></string>
     <boolean name="customer"/>
     <boolean name="supplier"/>
     <string name="gstin" min="15" max="15"></string>

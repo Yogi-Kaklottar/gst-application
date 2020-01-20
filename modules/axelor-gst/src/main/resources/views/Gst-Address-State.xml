@@ -2,14 +2,14 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <grid name="state-grid" title="state List"
+  <grid name="gst-configuration-state-grid" title="state List"
     model="com.axelor.gst.db.State">
     <field name="country"></field>
     <field name="name"></field>
 
   </grid>
 
-  <form name="state-form" title="state list"
+  <form name="gst-configuration-state-form" title="state list"
     model="com.axelor.gst.db.State">
     <panel title="Overview">
      <field name="country" colSpan="12"></field>

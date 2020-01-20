@@ -3,7 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <grid name="address-grid" title="address List" model="com.axelor.gst.db.Address">
+  <grid name="gst-address-grid" title="address List" model="com.axelor.gst.db.Address">
      <field name="type"/>
      <field name="line1"/>
      <field name="line2"/>
@@ -13,7 +13,7 @@
      <field name="pincode"/>
   </grid>
 
-  <form name="address-form" title="address list"   model="com.axelor.gst.db.Address">
+  <form name="gst-address-form" title="address list"   model="com.axelor.gst.db.Address">
     <panel title="Overview">
      <field name="type" colSpan="12" />
      <field name="line1" colSpan="12"/>

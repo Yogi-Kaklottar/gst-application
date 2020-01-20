@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <grid name="gst-product-grid" title="product List"   model="com.axelor.gst.db.Product">
+ 	 <field name="image"></field>
+	<field name="name"></field>
+	<field name="code"></field>
+	<field name="hsbn"></field>
+	<field name="category"></field>
+	<field name="saleprice"></field>
+	<field name="costprice"></field>
+	<field name="gstrate"></field>
+        
+  </grid>
+
+  <form name="gst-product-form" title="product list"   model="com.axelor.gst.db.Product">
+    <panel title="Overview">
+   	  <field name="image" widget="image"></field>
+      <field name="name"></field>
+      <field name="code"></field>
+      <field name="hsbn"></field>
+      <field name="category" onChange="Change-action-gst-attrs-productcategories"></field>
+      <field name="saleprice"></field>
+      <field name="costprice"></field>
+      <field name="gstrate"></field>
+      
+    </panel>
+  </form>
+  
+   <cards name="gst-product-card" title="product" model="com.axelor.gst.db.Product" orderBy="name">
+    <field name="image"></field>
+	<field name="name"></field>
+	<field name="code"></field>
+	<field name="hsbn"></field>
+	<field name="category"></field>
+	<field name="saleprice"></field>
+	<field name="costprice"></field>
+	<field name="gstrate"></field>
+    <template><![CDATA[
+     <div class="span4 card-image">
+     <img  ng-src="{{$image(image, 'image')}}">
+     <strong>{{name}}</strong>
+     </div>
+    <div class="span8">     
+        <span>Categories:{{category.name}}</span></br>
+       <span> Code:{{code}}</span></br>
+       <span>HSBN: {{hsbn}}</span></br>
+       <span> Saleprice:{{saleprice}}</span></br>
+       <span>Costprice:{{costprice}}</span></br>
+       <span>GST RATE:{{gstrate}}</span></br>    
+    </div>
+     ]]></template>
+  </cards>
+  
+  
+  
+  <action-attrs name="Change-action-gst-attrs-productcategories">
+    <attribute name="value" for="gstrate" expr="eval: __repo__(Productcategory).all().filter('self.id = ?',category).fetchOne().gstrate" />
+  </action-attrs>
+  
+  
+  </object-views>

@@ -2,50 +2,75 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <menuitem name="menu-gst" order="-100" title="Gst" icon="fa-users" icon-background="blue" />
-  
-  
-  <menuitem name="menu-gst-party" order="-100" title="party"/>
-  
-  <menuitem name="menu-gst-party-configuration" order="-100" title="configuration"/>
-  
-  
-    <menuitem title="Address" name="gst-party-configuration-address" parent="menu-gst-party-configuration" action="address.all" tag-style="important" />
+  <menuitem name="menu-gst-root" order="-100" title="Gst" icon="fa-users" icon-background="blue" />
+
+   <menuitem name="menu-gst-root-party-root" order="-100" title="Party" parent="menu-gst-root" tag-style="important" />
+
+
+<!-- Party Related Menu -->
+
+  <menuitem name="menu-gst-root-party" order="-100" title="party" parent="menu-gst-root-party-root" action="party.all" tag-style="important"/>
+   <action-view name="party.all" model="com.axelor.gst.db.Party" title="Party">
+    <view type="grid" name="gst-party-grid" />
+    <view type="form" name="gst-party-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+<!-- gst contact menu -->
+  <menuitem name="menu-gst-root-contact" order="-100" title="contact" parent="menu-gst-root-party-root" action="contact.all" tag-style="important"/>
+   <action-view name="contact.all" model="com.axelor.gst.db.Contact" title="Contact">
+    <view type="grid" name="gst-contact-grid" />
+    <view type="form" name="gst-contact-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+<!-- Address related Menu -->
+
+  <menuitem name="menu-gst-root-party-configuration" order="-100" title="configuration" parent="menu-gst-root-party-root"/>
+    <menuitem title="Address" name="menu-gst-root-party-configuration-address" parent="menu-gst-root-party-configuration" action="address.all" tag-style="important" />
   <action-view name="address.all" model="com.axelor.gst.db.Address" title="Address">
-    <view type="grid" name="address-grid" />
-    <view type="form" name="address-form" />
+    <view type="grid" name="gst-address-grid" />
+    <view type="form" name="gst-address-form" />
     <context name="json-enhance" expr="true" />
   </action-view>
-  
-    <menuitem title="city" name="gst-party-configuration-city" parent="menu-gst-party-configuration" action="city.all" tag-style="important" />
+
+    <menuitem title="city" name="menu-gst-root-party-configuration-city" parent="menu-gst-root-party-configuration" action="city.all" tag-style="important" />
   <action-view name="city.all" model="com.axelor.gst.db.City" title="City">
-    <view type="grid" name="city-grid" />
-    <view type="form" name="city-form" />
+    <view type="grid" name="gst-configuration-city-grid" />
+    <view type="form" name="gst-configuration-city-form" />
     <context name="json-enhance" expr="true" />
   </action-view>
-  
-  
-   <menuitem title="State" name="gst-party-configuration-state" parent="menu-gst-party-configuration" action="state.all" tag-style="important" />
+
+   <menuitem title="State" name="menu-gst-root-party-configuration-state" parent="menu-gst-root-party-configuration" action="state.all" tag-style="important" />
   <action-view name="state.all" model="com.axelor.gst.db.State" title="State">
-    <view type="grid" name="state-grid" />
-    <view type="form" name="state-form" />
+    <view type="grid" name="gst-configuration-state-grid" />
+    <view type="form" name="gst-configuration-state-form" />
     <context name="json-enhance" expr="true" />
   </action-view>
-  
- 
 
-  <menuitem title="Country" name="gst-party-configuration-country" parent="menu-gst-party-configuration" action="country.all" tag-style="important" />
+  <menuitem title="Country" name="menu-gst-root-party-configuration-country" parent="menu-gst-root-party-configuration" action="country.all" tag-style="important" />
   <action-view name="country.all" model="com.axelor.gst.db.Country" title="Country">
-    <view type="grid" name="country-grid" />
-    <view type="form" name="country-form" />
+    <view type="grid" name="gst-configuration-country-grid" />
+    <view type="form" name="gst-configuration-country-form" />
     <context name="json-enhance" expr="true" />
   </action-view>
 
- 
+<!--   End for address related Menu -->
 
+<!-- product menu -->
+<menuitem name="menu-gst-root-product-root" order="-100" title="Product" parent="menu-gst-root" tag-style="important" />
 
-
-
- 
-
+<menuitem title="product" name="menu-gst-root-product" parent="menu-gst-root-product-root" action="product.all" tag-style="important" />
+  <action-view name="product.all" model="com.axelor.gst.db.Product" title="Product">
+  	<view type="cards" name="gst-product-card"/>
+    <view type="grid" name="gst-product-grid" />
+    <view type="form" name="gst-product-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+  <menuitem title="Product Categories" name="menu-gst-root-productcategorie" parent="menu-gst-root-product-root" action="productcategories.all" tag-style="important" />
+  <action-view name="productcategories.all" model="com.axelor.gst.db.Productcategory" title="Product Categories">
+    <view type="grid" name="gst-productcategory-grid" />
+    <view type="form" name="gst-productcategory-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
  </object-views>
