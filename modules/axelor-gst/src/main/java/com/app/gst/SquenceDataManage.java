@@ -40,32 +40,31 @@ public class SquenceDataManage {
     }
     response.setValues(party);
   }
-  
+
   @Transactional
   public void setinvoiceSequence(ActionRequest request, ActionResponse response) {
     sdata = new Sequencedata();
     Sequence sequence;
-   
+
     Invoice invoice = request.getContext().asType(Invoice.class);
-    if(invoice.getReference()==null)
-    {
-		    MetaModel m;
-		    m = Beans.get(MetaModelRepository.class).findByName("Invoice");
-		    long id = m.getId();
-		    sequence = Beans.get(SequenceRepository.class).all().filter("self.model = ?", m).fetchOne();
-		    int n = Integer.parseInt(sequence.getNextnumber());
-		    String nextnumber = "" + n;
-		    int size = nextnumber.length();
-		    for (int i = size; i < sequence.getPadding(); i++) {
-		      nextnumber = "0" + nextnumber;
-		    }
-		    String s = sequence.getPrefix() + nextnumber + sequence.getSuffix();
-		    n = n + 1;
-		    String num = "" + n;
-		    sequence.setNextnumber(num);
-		    sdata.save(sequence);
-		    invoice.setReference(s);
-		    invoice.setStatus("Validated");
+    if (invoice.getReference() == null) {
+      MetaModel m;
+      m = Beans.get(MetaModelRepository.class).findByName("Invoice");
+      long id = m.getId();
+      sequence = Beans.get(SequenceRepository.class).all().filter("self.model = ?", m).fetchOne();
+      int n = Integer.parseInt(sequence.getNextnumber());
+      String nextnumber = "" + n;
+      int size = nextnumber.length();
+      for (int i = size; i < sequence.getPadding(); i++) {
+        nextnumber = "0" + nextnumber;
+      }
+      String s = sequence.getPrefix() + nextnumber + sequence.getSuffix();
+      n = n + 1;
+      String num = "" + n;
+      sequence.setNextnumber(num);
+      sdata.save(sequence);
+      invoice.setReference(s);
+      invoice.setStatus("Validated");
     }
     response.setValues(invoice);
   }

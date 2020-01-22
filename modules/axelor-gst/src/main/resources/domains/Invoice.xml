@@ -15,7 +15,7 @@
       <many-to-one name="partycontact" ref="com.axelor.gst.db.Contact" title="Party Contact"/>
       <many-to-one name="invoiceaddress" ref="com.axelor.gst.db.Address" title="Invoice Address" required="true"/>
       <many-to-one name="shippingaddress" ref="com.axelor.gst.db.Address" title="Shipping Addres"/>
-      <boolean name="useinvoiceaddressasshipping" title="Use Invoice Address As Shipping" />
+      <boolean name="useinvoiceaddressasshipping" title="Use Invoice Address As Shipping" default="true"/>
       <decimal name="netamount" readonly="true" title="Net Amount"/>
       <decimal name="netigst" readonly="true" title="NetIGST"/>
       <decimal name="netcsgst" readonly="true" title="NetCSGST"/>

@@ -23,7 +23,7 @@
 
   </grid>
 
-  <form name="gst-invoice-form" title="Invoiceline"   model="com.axelor.gst.db.Invoice"  onSave="action-gst-" onNew="Load-action-gst-attrs-invoice">
+  <form name="gst-invoice-form" title="Invoiceline"   model="com.axelor.gst.db.Invoice"  onSave="action-gst-method-invoice-onsave" onNew="action-gst-attrs-invoice-load,action-gst-record-invoice-company-default">
     <panel>
       <panel title="Overview" colSpan="8">
        <field name="status" widget="NavSelect"  colSpan="12" />
@@ -40,7 +40,7 @@
       <field name="reference" />
       <field name="curruntdate" />
       <field name="priority" />
-      <field name="party" />
+      <field name="party"/>
       <field name="partycontact" />
       <field name="invoiceaddress" colSpan="12" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
       <field name="useinvoiceaddressasshipping" colSpan="4"/>
@@ -60,23 +60,30 @@
     </panel>
     </form>
 
-   <action-attrs name="Load-action-gst-attrs-invoice">
+   <action-attrs name="action-gst-attrs-invoice-load">
     <attribute name="value" for="curruntdate" expr="eval: __datetime__" />
-  </action-attrs>
+   </action-attrs>
+
+   <action-record name="action-gst-record-invoice-company-default" model="com.axelor.gst.db.Company">
+    <field name="company" expr="eval: #{__self__.name}" />
+  </action-record>
+
+
 
   <action-attrs name="change-action-gst-attrs-invoice-shippingaddress">
-    <attribute name="value" expr="invoiceaddress" for="shippingaddress" if="useinvoiceaddressasshipping" />
+    <attribute name="value" expr="eval: __this__.invoiceaddress" for="shippingaddress" if="!useinvoiceaddressasshipping"/>
   </action-attrs>
+
+
+
+
    <action-method name="action-gst-invoice-onclick-validate">
       <call class="com.app.gst.SquenceDataManage" method="setinvoiceSequence" />
     </action-method>
-    
-    <action-attrs name="action-gst-attrs-invoiceitemset-calculate-data">
-        <attribute name="value" for="netamount" expr="eval: qty*price" />
-           <attribute name="value" for="netigst" expr="eval: qty*price*0.18" />
-          <attribute name="value" for="igst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="cgst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="sgst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="grossamount" expr="eval: (qty*price)+(qty*price*0.18)+(qty*price*(0.18/2))+(qty*price*(0.18/2))+(qty*price*(0.18/2))" />
-     </action-attrs>
+
+    <action-method name="action-gst-method-invoice-onsave">
+      <call class="com.app.gst.InvoicelineData" method="setInvoiceData" />
+    </action-method>
+
+
   </object-views>

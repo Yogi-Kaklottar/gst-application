@@ -9,7 +9,7 @@
       <many-to-one name="product" ref="com.axelor.gst.db.Product"></many-to-one>
       <string name="hsbn"></string>
       <string name="item" required="true"/>
-      <integer name="qty"/>
+      <integer name="qty" default="1"/>
       <decimal name="price" default="1"/>
       <decimal name="netamount" readonly="true"/>
       <decimal name="gstrate" readonly="true"/>

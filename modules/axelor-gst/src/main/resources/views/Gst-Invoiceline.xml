@@ -17,13 +17,13 @@
       <field name="grossamount"/>
   </grid>
 
-  <form name="gst-invoice-invoiceline-form" title="Invoiceline"   model="com.axelor.gst.db.Invoiceline" >
+  <form name="gst-invoice-invoiceline-form" title="Invoiceline"  onSave="onsave-action-gst-method-invoiceline"  model="com.axelor.gst.db.Invoiceline" >
     <panel title="Overview">
       <field name="product" onChange="Change-action-gst-attrs-product" />
       <field name="hsbn"/>
       <field name="item"/>
       <field name="qty"/>
-      <field name="price" onChange="Change-action-gst-attrs-setPrice"/>
+      <field name="price" />
       <field name="netamount"/>
        <field name="gstrate"/>
       <field name="igst"/>
@@ -37,18 +37,21 @@
 
   <action-attrs name="Change-action-gst-attrs-product">
     <attribute name="value" for="item" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().code+__repo__(Product).all().filter('self.id = ?',product).fetchOne().name" />
+     <attribute name="value" for="gstrate" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().gstrate" />
   </action-attrs>
 
 
-<action-method name="onsave-action-gst-method-invoiceline">
+
+  <action-method name="onsave-action-gst-method-invoiceline">
     <call class="com.app.gst.InvoicelineData" method="setInvoiceLineData" />
   </action-method>
-  <action-attrs name="Change-action-gst-attrs-setPrice">
-        <attribute name="value" for="netamount" expr="eval: qty*price" />
-           <attribute name="value" for="gstrate" expr="eval: qty*price*0.18" />
-          <attribute name="value" for="igst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="cgst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="sgst" expr="eval: qty*price*(0.18/2)" />
-           <attribute name="value" for="grossamount" expr="eval: (qty*price)+(qty*price*0.18)+(qty*price*(0.18/2))+(qty*price*(0.18/2))+(qty*price*(0.18/2))" />
-     </action-attrs>
+
+<!--   <action-attrs name="Change-action-gst-attrs-setPrice"> -->
+<!--         <attribute name="value" for="netamount" expr="eval: qty*price" /> -->
+<!--            <attribute name="value" for="gstrate" expr="eval: qty*price*0.18" /> -->
+<!--            <attribute name="value" for="igst" expr="eval: qty*price*(0.18/2)" /> -->
+<!--            <attribute name="value" for="cgst" expr="eval: qty*price*(0.18/2)" /> -->
+<!--            <attribute name="value" for="sgst" expr="eval: qty*price*(0.18/2)" /> -->
+<!--           <attribute name="value" for="grossamount" expr="eval: (qty*price)+(qty*price*0.18)+(qty*price*(0.18/2))+(qty*price*(0.18/2))+(qty*price*(0.18/2))" />  -->
+<!--      </action-attrs> -->
   </object-views>
