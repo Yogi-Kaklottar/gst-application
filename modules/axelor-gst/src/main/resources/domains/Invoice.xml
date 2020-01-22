@@ -6,21 +6,21 @@
 
   <module name="gst" package="com.axelor.gst.db" />
   <entity name="Invoice" cacheable="true">
-      <string name="status" readonly="true"/>
+      <string name="status" readonly="true" selection="gst.invoice.status.type.select" default="Draft"/>
       <many-to-one name="company" ref="com.axelor.gst.db.Company" required="true"/>
       <string name="reference" readonly="true"/>
       <datetime name="curruntdate" readonly="true"></datetime>
       <integer name="priority"/>
       <many-to-one name="party" ref="com.axelor.gst.db.Party" required="true"/>
-      <many-to-one name="partycontact" ref="com.axelor.gst.db.Contact"/>
-      <many-to-one name="invoiceaddress" ref="com.axelor.gst.db.Address" required="true"/>
-      <many-to-one name="shippingaddress" ref="com.axelor.gst.db.Address"/>
-      <boolean name="useinvoiceaddressasshipping" default="true"/>
-      <decimal name="netamount" readonly="true"/>
-      <decimal name="netigst" readonly="true"/>
-      <decimal name="netcsgst" readonly="true"/>
-      <decimal name="netsgst" readonly="true"/>
-      <decimal name="grossamount" readonly="true"/>
+      <many-to-one name="partycontact" ref="com.axelor.gst.db.Contact" title="Party Contact"/>
+      <many-to-one name="invoiceaddress" ref="com.axelor.gst.db.Address" title="Invoice Address" required="true"/>
+      <many-to-one name="shippingaddress" ref="com.axelor.gst.db.Address" title="Shipping Addres"/>
+      <boolean name="useinvoiceaddressasshipping" title="Use Invoice Address As Shipping" />
+      <decimal name="netamount" readonly="true" title="Net Amount"/>
+      <decimal name="netigst" readonly="true" title="NetIGST"/>
+      <decimal name="netcsgst" readonly="true" title="NetCSGST"/>
+      <decimal name="netsgst" readonly="true" title="NetSGST"/>
+      <decimal name="grossamount" readonly="true" title="Gross Amount"/>
       <one-to-many name="invoiceitem" ref="com.axelor.gst.db.Invoiceline" mappedBy="invoice"/>
     </entity>
   </domain-models>

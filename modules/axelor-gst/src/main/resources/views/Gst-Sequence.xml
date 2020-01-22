@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <grid name="gst-sequence-grid" title="sequence List" model="com.axelor.gst.db.Sequence">
+    <field name="prefix"></field>
+    <field name="suffix"></field>
+    <field name="padding"></field>
+     <field name="nextnumber"></field>
+     <field name="model"></field>
+  </grid>
+
+  <form name="gst-sequence-form" title="sequence list" model="com.axelor.gst.db.Sequence">
+    <panel title="Overview">
+     <field name="prefix"></field>
+    <field name="suffix"></field>
+    <field name="padding"></field>
+     <field name="nextnumber"></field>
+     <field name="model"></field>
+    </panel>
+  </form>
+
+</object-views>

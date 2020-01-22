@@ -6,6 +6,7 @@
 
   <grid name="gst-party-grid" title="Party List" model="com.axelor.gst.db.Party">
      <field name="name"/>
+     <field name="reference"/>
       <field name="type"/>
       <field name="customer"/>
       <field name="supplier"/>
@@ -14,16 +15,20 @@
       <field name="address"/>
   </grid>
 
-  <form name="gst-party-form" title="Party"   model="com.axelor.gst.db.Party">
+  <form name="gst-party-form" title="Party"   model="com.axelor.gst.db.Party" onSave="action-gst-party-onsave">
     <panel title="Overview">
+       <field name="reference"/>
       <field name="name"/>
       <field name="type"/>
-      <field name="customer"/>
-      <field name="supplier"/>
+      <field name="customer" colSpan="3"/>
+      <field name="supplier" colSpan="3"/>
       <field name="gstin" colSpan="12"/>
       <field name="contact" widget="editor" colSpan="12"/>
       <field name="address" widget="editor" colSpan="12"/>
     </panel>
   </form>
 
+   <action-method name="action-gst-party-onsave">
+      <call class="com.app.gst.SquenceDataManage" method="setPartysequence" />
+    </action-method>
 </object-views>

@@ -4,44 +4,79 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
   <grid name="gst-invoice-grid" title="Invoice" model="com.axelor.gst.db.Invoice">
-	<field name="status" />
-	<field name="company" />
-	<field name="reference" />
-	<field name="curruntdate" />
-	<field name="priority" />
-	<field name="party" />
-	<field name="partycontact" />
-	<field name="invoiceaddress" />
-	<field name="shippingaddress" />
-	<field name="useinvoiceaddressasshipping" />
-	<field name="netamount" />
-	<field name="netigst" />
-	<field name="netcsgst" />
-	<field name="netsgst" />
-	<field name="grossamount" />
-	<field name="invoiceitem" />
-      
+  <field name="status" />
+  <field name="company" />
+  <field name="reference" />
+  <field name="curruntdate" />
+  <field name="priority" />
+  <field name="party" />
+  <field name="partycontact" />
+  <field name="invoiceaddress" />
+  <field name="shippingaddress" />
+  <field name="useinvoiceaddressasshipping" />
+  <field name="netamount" />
+  <field name="netigst" />
+  <field name="netcsgst" />
+  <field name="netsgst" />
+  <field name="grossamount" />
+  <field name="invoiceitem" />
+
   </grid>
-  
-  <form name="gst-invoice-invoice-form" title="Invoiceline"   model="com.axelor.gst.db.Invoice" >
-    <panel title="Overview">
-     <field name="status" />
-	<field name="company" />
-	<field name="reference" />
-	<field name="curruntdate" />
-	<field name="priority" />
-	<field name="party" />
-	<field name="partycontact" />
-	<field name="invoiceaddress" />
-	<field name="shippingaddress" />
-	<field name="useinvoiceaddressasshipping" />
-	<field name="netamount" />
-	<field name="netigst" />
-	<field name="netcsgst" />
-	<field name="netsgst" />
-	<field name="grossamount" />
-	<field name="invoiceitem" />
+
+  <form name="gst-invoice-form" title="Invoiceline"   model="com.axelor.gst.db.Invoice"  onSave="action-gst-" onNew="Load-action-gst-attrs-invoice">
+    <panel>
+      <panel title="Overview" colSpan="8">
+       <field name="status" widget="NavSelect"  colSpan="12" />
+       </panel>
+       <panel colSpan="4">
+         <button name="btnValidate"  title="validate" showIf="status == 'Draft'" onClick="action-gst-invoice-onclick-validate" colSpan="12"/>
+         <button name="btnPaid"  title="Paid" showIf="status == 'Validated'"  colSpan="12"/>
+         <button name="btnCancel"  title="Cancel"  colSpan="12"/>
+
+       </panel>
+     </panel>
+     <panel>
+      <field name="company" />
+      <field name="reference" />
+      <field name="curruntdate" />
+      <field name="priority" />
+      <field name="party" />
+      <field name="partycontact" />
+      <field name="invoiceaddress" colSpan="12" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
+      <field name="useinvoiceaddressasshipping" colSpan="4"/>
+       <field name="shippingaddress" colSpan="8" />
+
+  </panel>
+  <panel>
+     <field name="invoiceitem"   colSpan="12" onChange="action-gst-attrs-invoiceitemset-calculate-data"/>
+  </panel>
+  <panel>
+      <field name="netamount" />
+      <field name="netigst" />
+      <field name="netcsgst" />
+      <field name="netsgst" />
+      <field name="grossamount" />
+
     </panel>
     </form>
+
+   <action-attrs name="Load-action-gst-attrs-invoice">
+    <attribute name="value" for="curruntdate" expr="eval: __datetime__" />
+  </action-attrs>
+
+  <action-attrs name="change-action-gst-attrs-invoice-shippingaddress">
+    <attribute name="value" expr="invoiceaddress" for="shippingaddress" if="useinvoiceaddressasshipping" />
+  </action-attrs>
+   <action-method name="action-gst-invoice-onclick-validate">
+      <call class="com.app.gst.SquenceDataManage" method="setinvoiceSequence" />
+    </action-method>
+    
+    <action-attrs name="action-gst-attrs-invoiceitemset-calculate-data">
+        <attribute name="value" for="netamount" expr="eval: qty*price" />
+           <attribute name="value" for="netigst" expr="eval: qty*price*0.18" />
+          <attribute name="value" for="igst" expr="eval: qty*price*(0.18/2)" />
+           <attribute name="value" for="cgst" expr="eval: qty*price*(0.18/2)" />
+           <attribute name="value" for="sgst" expr="eval: qty*price*(0.18/2)" />
+           <attribute name="value" for="grossamount" expr="eval: (qty*price)+(qty*price*0.18)+(qty*price*(0.18/2))+(qty*price*(0.18/2))+(qty*price*(0.18/2))" />
+     </action-attrs>
   </object-views>
-  

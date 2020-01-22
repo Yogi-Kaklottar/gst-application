@@ -11,10 +11,18 @@
 
   <form name="gst-configuration-city-form" title="city list"   model="com.axelor.gst.db.City">
     <panel title="Overview">
-      <field name="country"></field>
-      <field name="state"></field>
+      <field name="country" ></field>
+      <field name="state"  onSelect="action-gst-attrs-state-onchange"></field>
       <field name="name" colSpan="12"></field>
     </panel>
   </form>
+
+
+
+
+
+  <action-attrs name="action-gst-attrs-state-onchange">
+    <attribute name="domain" expr="eval: self.country = :country" for="state" />
+  </action-attrs>
 
 </object-views>

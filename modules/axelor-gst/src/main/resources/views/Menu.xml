@@ -99,11 +99,24 @@
 
   <menuitem name="menu-gst-root-invoice-root" order="-100" title="Invoice" parent="menu-gst-root" tag-style="important" />
 
-      <menuitem title="invoiceline" name="menu-gst-root-invoiceline" parent="menu-gst-root-invoice-root" action="invoiceline.all" tag-style="important" />
-          <action-view name="invoiceline.all" model="com.axelor.gst.db.Invoiceline" title="invoiceline">
-          <view type="grid" name="gst-invoice-invoiceline-grid" />
-          <view type="form" name="gst-invoice-invoiceline-form" />
+      <menuitem title="invoice" name="menu-gst-root-invoiceline" parent="menu-gst-root-invoice-root" action="invoice.all" tag-style="important" />
+          <action-view name="invoice.all" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="grid" name="gst-invoice-grid" />
+          <view type="form" name="gst-invoice-form" />
           <context name="json-enhance" expr="true" />
         </action-view>
+
+
+<!--         sequence Menu -->
+
+ <menuitem name="menu-gst-root-sequence" order="-100" title="Sequence" parent="menu-gst-root" tag-style="important" />
+
+      <menuitem title="Sequence" name="menu-gst-root-sequence-model" parent="menu-gst-root-sequence" action="sequence.all" tag-style="important" />
+          <action-view name="sequence.all" model="com.axelor.gst.db.Sequence" title="Sequence">
+          <view type="grid" name="gst-sequence-grid" />
+          <view type="form" name="gst-sequence-form" />
+          <context name="json-enhance" expr="true" />
+        </action-view>
+
 
  </object-views>

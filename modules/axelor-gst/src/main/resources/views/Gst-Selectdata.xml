@@ -33,4 +33,14 @@
       <option value="current">current</option>
         <option value="saving">saving</option>
     </selection>
+
+<!--    invoice status type -->
+  <selection name="gst.invoice.status.type.select">
+        <option value="Draft">Draft</option>
+    <option value="Validated">Validated</option>
+    <option value="Paid">Paid</option>
+    <option value="Cancelled">Cancelled</option>
+    </selection>
+
+
 </object-views>
