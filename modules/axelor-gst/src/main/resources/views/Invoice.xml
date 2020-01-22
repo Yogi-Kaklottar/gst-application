@@ -48,7 +48,7 @@
 
   </panel>
   <panel>
-     <field name="invoiceitem"   colSpan="12" onChange="action-gst-attrs-invoiceitemset-calculate-data"/>
+     <field name="invoiceitem"   colSpan="12" />
   </panel>
   <panel>
       <field name="netamount" />

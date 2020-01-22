@@ -1,7 +1,6 @@
 package com.app.gst;
 
 import com.axelor.gst.db.Address;
-import com.axelor.gst.db.Company;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.Invoiceline;
 import com.axelor.rpc.ActionRequest;
@@ -33,39 +32,44 @@ public class InvoicelineData {
   }
 
   public void setInvoiceLineData(ActionRequest request, ActionResponse response) {
+    System.err.println("hello calll");
     Invoiceline invoiceline = request.getContext().asType(Invoiceline.class);
-    Invoice invoice = request.getContext().asType(Invoice.class);
-    Company company = invoice.getCompany();
-    Address companyAddress = company.getAddress();
+    Invoice invoice = request.getContext().getParent().asType(Invoice.class);
+    BigDecimal n;
+    Address companyAddress = invoice.getCompany().getAddress();
     Address invoiceAddress = invoice.getInvoiceaddress();
 
-    double netamount = 0, netigst = 0, netcsgst = 0, netsgst = 0, grossamount = 0;
+    BigDecimal netamount, netigst, netcsgst, netsgst, grossamount = new BigDecimal(0);
+    BigDecimal b = new BigDecimal(invoiceline.getQty());
+    netamount = invoiceline.getPrice().multiply(b);
 
-    netamount = invoiceline.getQty().doubleValue() * invoiceline.getPrice().doubleValue();
-
-    if (companyAddress.getState() != invoiceAddress.getState()) {
-      netigst = netamount * (invoiceline.getGstrate().doubleValue() / 100);
+    System.out.println(netamount.toString());
+    if (companyAddress.getState().equals(invoiceAddress.getState())) {
+      netigst = new BigDecimal(0);
+      netcsgst =
+          netamount
+              .multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+              .divide(new BigDecimal(2));
+      netsgst =
+          netamount
+              .multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+              .divide(new BigDecimal(2));
     } else {
-      netigst = 0;
-    }
-    if (companyAddress.getState() == invoiceAddress.getState()) {
-      netcsgst = netamount * (invoiceline.getGstrate().doubleValue() / 100) / 2;
-    } else {
-      netcsgst = 0;
-    }
-    if (companyAddress.getState() != invoiceAddress.getState()) {
-      netsgst = netamount * (invoiceline.getGstrate().doubleValue() / 100) / 2;
-    } else {
-      netsgst = 0;
+      netcsgst = new BigDecimal(0);
+      netsgst = new BigDecimal(0);
+      netigst =
+          netamount
+              .multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+              .divide(new BigDecimal(2));
     }
 
-    grossamount = grossamount + netamount + netcsgst + netigst + netsgst;
+    grossamount = grossamount.add(netamount).add(netcsgst).add(netigst).add(netsgst);
 
-    invoiceline.setNetamount(new BigDecimal(netamount));
-    invoiceline.setIgst(new BigDecimal(netigst));
-    invoiceline.setCgst(new BigDecimal(netcsgst));
-    invoiceline.setSgst(new BigDecimal(netsgst));
-    invoiceline.setGrossamount(new BigDecimal(grossamount));
+    invoiceline.setNetamount(netamount);
+    invoiceline.setIgst(netigst);
+    invoiceline.setCgst(netcsgst);
+    invoiceline.setSgst(netsgst);
+    invoiceline.setGrossamount(grossamount);
 
     response.setValues(invoiceline);
   }
