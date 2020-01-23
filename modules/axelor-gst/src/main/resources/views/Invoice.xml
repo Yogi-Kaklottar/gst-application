@@ -118,6 +118,10 @@
     <action-method name="action-gst-method-invoice-onsave">
       <call class="com.app.gst.InvoicelineData" method="setInvoiceData" />
     </action-method>
+    
+<!--     <action-method name="action-gst-invoice-party-change-calculation"> -->
+<!--       <call class="com.app.gst.InvoicelineData" method="setinvoiceRepeteData" /> -->
+<!--     </action-method> -->
 
 
   </object-views>
