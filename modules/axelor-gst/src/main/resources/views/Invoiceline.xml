@@ -9,12 +9,12 @@
       <field name="item"/>
       <field name="qty"/>
       <field name="price"/>
-      <field name="netamount"/>
+      <field name="netAmount"/>
        <field name="gstrate"/>
       <field name="igst"/>
       <field name="cgst"/>
       <field name="sgst"/>
-      <field name="grossamount"/>
+      <field name="grossAmount"/>
   </grid>
 
   <form name="gst-invoice-invoiceline-form" title="Invoiceline"   model="com.axelor.gst.db.Invoiceline" >
@@ -22,14 +22,14 @@
       <field name="product" onChange="Change-action-gst-attrs-product" />
       <field name="hsbn"/>
       <field name="item"/>
-      <field name="qty"/>
-      <field name="price" onChange="onsave-action-gst-method-invoiceline" />
-      <field name="netamount"/>
+      <field name="qty" onChange="onsave-action-gst-method-invoiceline"/>
+      <field name="price"  />
+      <field name="netAmount"/>
        <field name="gstrate"/>
       <field name="igst"/>
       <field name="cgst"/>
       <field name="sgst"/>
-      <field name="grossamount"/>
+      <field name="grossAmount"/>
 
     </panel>
   </form>
@@ -38,6 +38,7 @@
   <action-attrs name="Change-action-gst-attrs-product">
     <attribute name="value" for="item" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().code+__repo__(Product).all().filter('self.id = ?',product).fetchOne().name" />
      <attribute name="value" for="gstrate" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().gstrate" />
+     <attribute name="value" for="price" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().saleprice" />
   </action-attrs>
 
 

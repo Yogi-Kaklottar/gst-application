@@ -99,12 +99,41 @@
 
   <menuitem name="menu-gst-root-invoice-root" order="-100" title="Invoice" parent="menu-gst-root" tag-style="important" />
 
-      <menuitem title="invoice" name="menu-gst-root-invoiceline" parent="menu-gst-root-invoice-root" action="invoice.all" tag-style="important" />
-          <action-view name="invoice.all" model="com.axelor.gst.db.Invoice" title="invoice">
-          <view type="grid" name="gst-invoice-grid" />
+      <menuitem title="Create Invoice" name="menu-gst-root-invoice-form" parent="menu-gst-root-invoice-root" action="invoiceForm" tag-style="important" />
+          <action-view name="invoiceForm" model="com.axelor.gst.db.Invoice" title="invoice">
           <view type="form" name="gst-invoice-form" />
-          <context name="json-enhance" expr="true" />
         </action-view>
+        <menuitem title="Draft Invoice" name="menu-gst-root-invoice-Draft" parent="menu-gst-root-invoice-root" action="invoiceDraft" tag-style="important" />
+          <action-view name="invoiceDraft" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="grid" name="gst-invoice-grid" />
+           <view type="form" name="gst-invoice-form" />
+          <domain>self.status = 'Draft'</domain>
+       </action-view>
+         <menuitem title="Validated Invoice" name="menu-gst-root-invoice-validate" parent="menu-gst-root-invoice-root" action="invoiceValidated" tag-style="important" />
+          <action-view name="invoiceValidated" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="grid" name="gst-invoice-grid" />
+           <view type="form" name="gst-invoice-form" />
+           <domain>self.status = 'Validated'</domain>
+       </action-view>
+       <menuitem title="Paid Invoice" name="menu-gst-root-invoice-paid" parent="menu-gst-root-invoice-root" action="invoicePaid" tag-style="important" />
+          <action-view name="invoicePaid" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="grid" name="gst-invoice-grid" />
+           <view type="form" name="gst-invoice-form" />
+           <domain>self.status = 'Paid'</domain>
+       </action-view>
+
+       <menuitem title="Cancel Invoice" name="menu-gst-root-invoice-cancel" parent="menu-gst-root-invoice-root" action="invoiceCancel" tag-style="important" />
+          <action-view name="invoiceCancel" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="grid" name="gst-invoice-grid" />
+           <view type="form" name="gst-invoice-form" />
+           <domain>self.status = 'Cancelled'</domain>
+       </action-view>
+      <menuitem title="All Invoice" name="menu-gst-root-invoice-All" parent="menu-gst-root-invoice-root" action="invoiceDisplay" tag-style="important" />
+          <action-view name="invoiceDisplay" model="com.axelor.gst.db.Invoice" title="invoice">
+          <view type="kanban" name="gst-invoice-kanban"/>
+          <view type="grid" name="gst-invoice-grid" />
+           <view type="form" name="gst-invoice-form" />
+       </action-view>
 
 
 <!--         sequence Menu -->

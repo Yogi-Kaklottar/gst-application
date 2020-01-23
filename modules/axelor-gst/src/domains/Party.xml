@@ -5,14 +5,14 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
 
   <module name="gst" package="com.axelor.gst.db" />
-  <entity name="Party" cacheable="true">
-    <string name="reference" readonly="true"/>
-    <string name="name" required="true"></string>
+  <entity name="Party" >
+    <string name="reference" readonly="true" title="Reference"/>
+    <string name="name" required="true" title="Name"></string>
     <string name="type" required="true" default="Company" selection="gst.party.type.select"></string>
-    <boolean name="customer"/>
-    <boolean name="supplier"/>
-    <string name="gstin" min="15" max="15"></string>
-    <one-to-many name="contactList" ref="com.axelor.gst.db.Contact"  mappedBy="party" />
+    <boolean name="customer" title="Customer"/>
+    <boolean name="supplier" title="Supplier"/>
+    <string name="gstin" min="15" max="15" title="GSTIN"></string>
+    <one-to-many name="contactList" ref="com.axelor.gst.db.Contact" mappedBy="party" />
     <one-to-many name="addressList" ref="com.axelor.gst.db.Address" mappedBy="party"/>
   </entity>
 </domain-models>

@@ -6,10 +6,10 @@
   <grid name="gst-contact-grid" title="Gst Contact List" model="com.axelor.gst.db.Contact">
      <field name="name" />
   <field name="type" />
-  <field name="primaryemail" />
-  <field name="secondaryemail" />
+  <field name="primaryEmail" />
+  <field name="secondaryEmail" />
   <field name="primaryphone" />
-  <field name="secondaryphone" />
+  <field name="secondaryPhone" />
 
   </grid>
 
@@ -17,10 +17,10 @@
     <panel title="Overview">
     <field name="name" />
     <field name="type" />
-    <field name="primaryemail" />
-    <field name="secondaryemail" />
-    <field name="primaryphone" />
-    <field name="secondaryphone" />
+    <field name="primaryEmail" />
+    <field name="secondaryEmail" />
+    <field name="primaryPhone" />
+    <field name="secondaryPhone" />
 
     </panel>
   </form>

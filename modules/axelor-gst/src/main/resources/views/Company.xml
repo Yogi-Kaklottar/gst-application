@@ -6,9 +6,9 @@
   <grid name="gst-company-grid" title="company List"   model="com.axelor.gst.db.Company">
     <field name="logo"></field>
   <field name="name"></field>
-  <field name="contact"></field>
+  <field name="contactList"></field>
   <field name="gstin"></field>
-  <field name="bankdetail"></field>
+  <field name="bankdetailList"></field>
   <field name="address"></field>
 
 
@@ -20,9 +20,19 @@
       <field name="name" colSpan="8"></field>
        <field name="gstin" colSpan="12"></field>
        <field name="address" colSpan="12"></field>
-      <field name="contact" widget="editor" colSpan="12"></field>
-      <field name="bankdetail" colSpan="12"></field>
-
+      <field name="bankdetailList" colSpan="12"></field>
+      </panel>
+      <panel>
+      <field name="contactList" widget="editor" colSpan="12">
+     <editor x-viewer="true">
+      <field name="name" />
+      <field name="type" />
+      <field name="primaryemail" />
+      <field name="secondaryemail" />
+      <field name="primaryphone" />
+      <field name="secondaryphone" />
+      </editor>
+       </field>
       </panel>
   </form>
 

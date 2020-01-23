@@ -11,8 +11,8 @@
       <field name="customer"/>
       <field name="supplier"/>
       <field name="gstin"/>
-      <field name="contact"/>
-      <field name="address"/>
+      <field name="contactList"/>
+      <field name="addressList"/>
   </grid>
 
   <form name="gst-party-form" title="Party"   model="com.axelor.gst.db.Party" onSave="action-gst-party-onsave">
@@ -23,8 +23,28 @@
       <field name="customer" colSpan="3"/>
       <field name="supplier" colSpan="3"/>
       <field name="gstin" colSpan="12"/>
-      <field name="contact" widget="editor" colSpan="12"/>
-      <field name="address" widget="editor" colSpan="12"/>
+      <field name="contactList" colSpan="12">
+         <editor x-viewer="true">
+      <field name="name" />
+      <field name="type" />
+      <field name="primaryemail" />
+      <field name="secondaryemail" />
+      <field name="primaryphone" />
+      <field name="secondaryphone" />
+      </editor>
+     </field>
+
+      <field name="addressList"  colSpan="12">
+            <editor x-viewer="true">
+          <field name="type" colSpan="12" />
+          <field name="line1" colSpan="12" />
+          <field name="line2" colSpan="12" />
+          <field name="country" colSpan="12" />
+          <field name="state" colSpan="12" />
+          <field name="city" colSpan="12" />
+           <field name="pincode"/>
+          </editor>
+      </field>
     </panel>
   </form>
 

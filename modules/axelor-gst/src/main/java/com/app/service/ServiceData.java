@@ -1,5 +1,3 @@
 package com.app.service;
 
-public interface ServiceData {
-   
-}
+public interface ServiceData {}
