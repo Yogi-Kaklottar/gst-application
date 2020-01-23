@@ -30,7 +30,7 @@
        </panel>
        <panel colSpan="4">
          <button name="btnValidate"  title="validate" showIf="status == 'Draft'" onClick="action-gst-invoice-onclick-validate" colSpan="12"/>
-         <button name="btnPaid"  title="Paid" showIf="status == 'Validated'"  colSpan="12"/>
+         <button name="btnPaid"  title="Paid" showIf="status == 'Validated'" onClick="action-gst-invoice-onclick-paid" colSpan="12"/>
          <button name="btnCancel"  title="Cancel"  colSpan="12"/>
 
        </panel>

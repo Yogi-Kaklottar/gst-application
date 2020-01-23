@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.7.0.v201706222054</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">143</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="invoiceData" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/axelor-gst</property>
+            <property name="odaUser">axelor</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YXhlbG9y</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="invoce" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">archived</property>
+                    <text-property name="displayName">archived</text-property>
+                    <text-property name="heading">archived</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">version</property>
+                    <text-property name="displayName">version</text-property>
+                    <text-property name="heading">version</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">created_on</property>
+                    <text-property name="displayName">created_on</text-property>
+                    <text-property name="heading">created_on</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">updated_on</property>
+                    <text-property name="displayName">updated_on</text-property>
+                    <text-property name="heading">updated_on</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">attrs</property>
+                    <text-property name="displayName">attrs</text-property>
+                    <text-property name="heading">attrs</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">curruntdate</property>
+                    <text-property name="displayName">curruntdate</text-property>
+                    <text-property name="heading">curruntdate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">grossamount</property>
+                    <text-property name="displayName">grossamount</text-property>
+                    <text-property name="heading">grossamount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">netamount</property>
+                    <text-property name="displayName">netamount</text-property>
+                    <text-property name="heading">netamount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">netcsgst</property>
+                    <text-property name="displayName">netcsgst</text-property>
+                    <text-property name="heading">netcsgst</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">netigst</property>
+                    <text-property name="displayName">netigst</text-property>
+                    <text-property name="heading">netigst</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">netsgst</property>
+                    <text-property name="displayName">netsgst</text-property>
+                    <text-property name="heading">netsgst</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">priority</property>
+                    <text-property name="displayName">priority</text-property>
+                    <text-property name="heading">priority</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">reference</property>
+                    <text-property name="displayName">reference</text-property>
+                    <text-property name="heading">reference</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">status</property>
+                    <text-property name="displayName">status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">useinvoiceaddressasshipping</property>
+                    <text-property name="displayName">useinvoiceaddressasshipping</text-property>
+                    <text-property name="heading">useinvoiceaddressasshipping</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">created_by</property>
+                    <text-property name="displayName">created_by</text-property>
+                    <text-property name="heading">created_by</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">updated_by</property>
+                    <text-property name="displayName">updated_by</text-property>
+                    <text-property name="heading">updated_by</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">company</property>
+                    <text-property name="displayName">company</text-property>
+                    <text-property name="heading">company</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">invoiceaddress</property>
+                    <text-property name="displayName">invoiceaddress</text-property>
+                    <text-property name="heading">invoiceaddress</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">party</property>
+                    <text-property name="displayName">party</text-property>
+                    <text-property name="heading">party</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">partycontact</property>
+                    <text-property name="displayName">partycontact</text-property>
+                    <text-property name="heading">partycontact</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">shippingaddress</property>
+                    <text-property name="displayName">shippingaddress</text-property>
+                    <text-property name="heading">shippingaddress</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">id_1</property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">archived_1</property>
+                    <text-property name="displayName">archived</text-property>
+                    <text-property name="heading">archived</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">version_1</property>
+                    <text-property name="displayName">version</text-property>
+                    <text-property name="heading">version</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">created_on_1</property>
+                    <text-property name="displayName">created_on</text-property>
+                    <text-property name="heading">created_on</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">updated_on_1</property>
+                    <text-property name="displayName">updated_on</text-property>
+                    <text-property name="heading">updated_on</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">attrs_1</property>
+                    <text-property name="displayName">attrs</text-property>
+                    <text-property name="heading">attrs</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">gstin</property>
+                    <text-property name="displayName">gstin</text-property>
+                    <text-property name="heading">gstin</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name</property>
+                    <text-property name="displayName">name</text-property>
+                    <text-property name="heading">name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">created_by_1</property>
+                    <text-property name="displayName">created_by</text-property>
+                    <text-property name="heading">created_by</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">updated_by_1</property>
+                    <text-property name="displayName">updated_by</text-property>
+                    <text-property name="heading">updated_by</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address</property>
+                    <text-property name="displayName">address</text-property>
+                    <text-property name="heading">address</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">logo</property>
+                    <text-property name="displayName">logo</text-property>
+                    <text-property name="heading">logo</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">archived</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">version</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">created_on</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">updated_on</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">attrs</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">curruntdate</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">grossamount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">netamount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">netcsgst</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">netigst</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">netsgst</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">priority</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">reference</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">useinvoiceaddressasshipping</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">created_by</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">updated_by</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">company</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">invoiceaddress</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">party</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">partycontact</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">shippingaddress</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">id_1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">archived_1</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">version_1</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">created_on_1</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">updated_on_1</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">attrs_1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">gstin</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">created_by_1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">updated_by_1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">address</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">logo</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">invoiceData</property>
+            <xml-property name="queryText"><![CDATA[select  invoice.*,c.*
+from gst_invoice i,gst_company c
+where c.id=i.company and i.id=1;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+</report>
