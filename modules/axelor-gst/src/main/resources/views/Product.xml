@@ -16,6 +16,9 @@
   </grid>
 
   <form name="gst-product-form" title="product list"   model="com.axelor.gst.db.Product">
+  <toolbar>
+      <button name="GstProductBtn" title="GstProduct" onClick="action-gst-Product-btnClick" />
+    </toolbar>
     <panel title="Overview">
        <field name="image" widget="image" colSpan="4"></field>
       <field name="name" colSpan="8"></field>
@@ -59,6 +62,10 @@
   <action-attrs name="Change-action-gst-attrs-productcategories">
     <attribute name="value" for="gstrate" expr="eval: __repo__(Productcategory).all().filter('self.id = ?',category).fetchOne().gstrate" />
   </action-attrs>
+<action-report output="product" name="action-gst-Product-btnClick" design="Product.rptdesign">
+    <param name="id" expr="eval: __self__.id"/>
+    <param name="location" expr='eval:com?.axelor?.app?.AppSettings?.get()?.getPath("file.upload.dir", "")+"/"'/>
+  </action-report>
 
 
   </object-views>
