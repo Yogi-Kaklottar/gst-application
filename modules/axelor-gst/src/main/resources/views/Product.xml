@@ -17,8 +17,8 @@
 
   <form name="gst-product-form" title="product list"   model="com.axelor.gst.db.Product">
     <panel title="Overview">
-       <field name="image" widget="image"></field>
-      <field name="name"></field>
+       <field name="image" widget="image" colSpan="4"></field>
+      <field name="name" colSpan="8"></field>
       <field name="code"></field>
       <field name="hsbn"></field>
       <field name="category" onChange="Change-action-gst-attrs-productcategories"></field>

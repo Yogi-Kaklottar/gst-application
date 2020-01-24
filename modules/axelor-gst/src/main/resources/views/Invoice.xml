@@ -24,6 +24,9 @@
   </grid>
 
   <form name="gst-invoice-form" title="Invoice"   model="com.axelor.gst.db.Invoice"   onNew="action-gst-attrs-invoice-load,action-gst-record-invoice-company-default">
+  <toolbar>
+      <button name="GstInvoiceBtn" title="GstInvoice" onClick="action-gst-invoice-btnClick" />
+    </toolbar>
     <panel>
       <panel title="Overview" colSpan="8">
        <field name="status" widget="NavSelect"  colSpan="12" />
@@ -118,10 +121,13 @@
     <action-method name="action-gst-method-invoice-onsave">
       <call class="com.app.gst.InvoicelineData" method="setInvoiceData" />
     </action-method>
-    
+
 <!--     <action-method name="action-gst-invoice-party-change-calculation"> -->
 <!--       <call class="com.app.gst.InvoicelineData" method="setinvoiceRepeteData" /> -->
 <!--     </action-method> -->
-
+ <action-report output="invoice" name="action-gst-invoice-btnClick" design="Invoice.rptdesign">
+    <param name="id" expr="eval: __self__.id"/>
+    <param name="location" expr='eval:com?.axelor?.app?.AppSettings?.get()?.getPath("file.upload.dir", "")+"/"'/>
+  </action-report>
 
   </object-views>

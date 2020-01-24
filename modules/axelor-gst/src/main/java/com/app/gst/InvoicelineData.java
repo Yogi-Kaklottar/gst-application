@@ -125,7 +125,4 @@ public class InvoicelineData {
     }
     respons.setValues(invoice);
   }
-  
-
-  
 }
