@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+ <dashboard name="gst-dashboard" title="Unpaid Invoice">
+   <dashlet action="gst.dashboard.invoice.unpaid.chart"/>
+   <dashlet action="gst.dashboard.invoice.state.customer"/>
+ </dashboard>
+ <action-view name="gst.dashboard.invoice.unpaid.chart" title="unPaid Invoice Cutomer CHART">
+       <view type="chart" name="dashboard-gst-unpaid-chart"/>       
+ </action-view>
+  <action-view name="gst.dashboard.invoice.state.customer" title="state wise customer">       
+       <view type="chart" name="dashboard-gst-state-chart"/>
+ </action-view>
+
+<chart name="dashboard-gst-unpaid-chart" title="Total Unpaid Customer" onInit="action-gst-chart-unpaid-customer-defaultdate">
+    <search-fields>
+      <field name="toDateT" type="date" title="To Date"  x-required="true" />
+      <field name="fromDateT" type="date" title="From Date"   x-required="true" />
+    </search-fields>
+    <dataset type="jpql">
+     <![CDATA[
+      select p.name as Pname,COUNT(i.id) as number
+      From Invoice i
+      LEFT JOIN
+      		i.party as p
+      where
+        (i.status='Draft' OR i.status='Validated')
+        and
+        i.curruntDate >=:toDateT
+        AND
+         i.curruntDate <= :fromDateT
+       group by
+          p.name 
+      
+      
+      ]]>
+    </dataset>
+    <category key="Pname" type="text" />
+    <series key="number" type="bar" />
+  </chart>
+  
+  
+  
+  
+  <chart name="dashboard-gst-paid-chart" title="Total paid Customer" onInit="action-gst-chart-unpaid-customer-defaultdate">
+    <search-fields>
+      <field name="fromDateT" type="datetime" title="To Date"  x-required="true" />
+      <field name="toDateT" type="datetime" title="From Date"   x-required="true" />
+    </search-fields>
+    <dataset type="sql">
+     <![CDATA[
+       
+      ]]>
+    </dataset>
+    <category key="" type="text" />
+    <series key="" type="bar" />
+  </chart>
+  
+  <chart name="dashboard-gst-state-chart" title="Total Sate Wise Customer">
+   
+    <dataset type="jpql">
+     <![CDATA[
+       SELECT
+		s.name as stateName,
+		COUNT(a.party.name) as partyCount
+		FROM 
+		Address a
+		LEFT JOIN
+		a.state as s
+		GROUP BY
+		s,
+		party
+		
+      ]]>
+    </dataset>
+    <category key="stateName" type="text" />
+    <series key="partyCount" type="pie" />
+  </chart>
+  
+  
+  
+ 
+  <action-record name="action-gst-chart-unpaid-customer-defaultdate" model="com.axelor.gst.db.Invoice">
+    <field name="toDateT" expr="eval:LocalDate.now().withDayOfMonth(1)" />
+    <field name="fromDateT" expr="eval:__date__" />
+  </action-record>
+  
+</object-views>

@@ -15,23 +15,29 @@ public class InvoicelineData {
 
   public void setInvoiceData(ActionRequest request, ActionResponse response) {
     Invoice invoice = request.getContext().asType(Invoice.class);
-    double netamount = 0, netigst = 0, netcsgst = 0, netsgst = 0, grossamount = 0;
+  
     ArrayList<Invoiceline> il = (ArrayList<Invoiceline>) invoice.getInvoiceitemList();
+     
+    
+    BigDecimal cgst = BigDecimal.ZERO;
+    BigDecimal sgst = BigDecimal.ZERO;
+    BigDecimal igst = BigDecimal.ZERO;
+    BigDecimal netTotal = BigDecimal.ZERO;
+    BigDecimal grossTotal = BigDecimal.ZERO;
 
-    for (Invoiceline invoiceline : il) {
-      netamount = netamount + invoiceline.getNetAmount().doubleValue();
-      netigst = netigst + invoiceline.getIgst().doubleValue();
-      netcsgst = netcsgst + invoiceline.getCgst().doubleValue();
-      netsgst = netsgst + invoiceline.getSgst().doubleValue();
-      grossamount = grossamount + netamount + netcsgst + netigst + netsgst;
+    for (Invoiceline invoiceLine : il) {
+      netTotal = netTotal.add(invoiceLine.getNetAmount());
+      sgst = sgst.add(invoiceLine.getSgst());
+      cgst = cgst.add(invoiceLine.getCgst());
+      igst = igst.add(invoiceLine.getIgst());
+      grossTotal = grossTotal.add(invoiceLine.getGrossAmount());
     }
 
-    invoice.setNetAmount(new BigDecimal(netamount));
-    invoice.setNetIgst(new BigDecimal(netigst));
-    invoice.setNetCsgst(new BigDecimal(netcsgst));
-    invoice.setNetSgst(new BigDecimal(netsgst));
-    invoice.setGrossAmount(new BigDecimal(grossamount));
-
+    invoice.setNetIgst(igst);
+    invoice.setNetCsgst(cgst);
+    invoice.setNetSgst(sgst);
+    invoice.setNetAmount(netTotal);
+    invoice.setGrossAmount(grossTotal);
     response.setValues(invoice);
   }
 
@@ -47,7 +53,7 @@ public class InvoicelineData {
     BigDecimal b = new BigDecimal(invoiceline.getQty());
     netamount = invoiceline.getPrice().multiply(b);
 
-    System.out.println(netamount.toString());
+   
     if (companyAddress.getState().equals(invoiceAddress.getState())) {
       netigst = new BigDecimal(0);
       netcsgst =

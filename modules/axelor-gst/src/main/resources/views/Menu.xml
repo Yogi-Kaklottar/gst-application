@@ -146,6 +146,14 @@
           <view type="form" name="gst-sequence-form" />
           <context name="json-enhance" expr="true" />
         </action-view>
+	
+	
+<!-- 	DashBoard -->
 
+	 <menuitem name="menu-gst-root-dashboard" title="Dashboard" parent="menu-gst-root" tag-style="important" action="dashboard.all"  />
+	
+          <action-view name="dashboard.all" model="com.axelor.gst.db.Invoice" title="Chart">
+        		  <view type="dashboard" name="gst-dashboard" />       
+          </action-view>
 
  </object-views>
