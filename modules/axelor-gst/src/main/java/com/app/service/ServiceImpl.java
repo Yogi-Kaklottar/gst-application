@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.app.gst.InvoiceLinedata;
 import com.axelor.gst.db.Address;
 import com.axelor.gst.db.Contact;
 import com.axelor.gst.db.Invoice;
@@ -132,5 +133,46 @@ public class ServiceImpl implements ServiceData {
 			System.out.println("Method:setinvoiceDefaultfield");
 		}
 		return invoice;
+	}
+	public Invoiceline setPartyCompanyChangeData(Invoice invoice, Invoiceline invoiceline)
+	{
+		try
+		{
+			InvoiceLinedata invoicelinedata=new InvoiceLinedata();
+			BigDecimal n;
+			Address companyAddress = invoice.getCompany().getAddress();
+			Address invoiceAddress = invoice.getInvoiceAddress();
+
+			BigDecimal netamount, netigst, netcsgst, netsgst, grossamount = new BigDecimal(0);
+			BigDecimal b = new BigDecimal(invoiceline.getQty());
+			netamount = invoiceline.getPrice().multiply(b);
+
+			if (companyAddress.getState().equals(invoiceAddress.getState())) {
+				netigst = new BigDecimal(0);
+				netcsgst = netamount.multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+						.divide(new BigDecimal(2));
+				netsgst = netamount.multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+						.divide(new BigDecimal(2));
+			} else {
+				netcsgst = new BigDecimal(0);
+				netsgst = new BigDecimal(0);
+				netigst = netamount.multiply(invoiceline.getGstrate().divide(new BigDecimal(100)))
+						.divide(new BigDecimal(2));
+			}
+
+			grossamount = grossamount.add(netamount).add(netcsgst).add(netigst).add(netsgst);
+		//	System.err.println(grossamount);
+			invoiceline.setNetAmount(netamount);
+			invoiceline.setIgst(netigst);
+			invoiceline.setCgst(netcsgst);
+			invoiceline.setSgst(netsgst);
+			invoiceline.setGrossAmount(grossamount);
+			invoicelinedata.persist(invoiceline);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return invoiceline;
 	}
 }

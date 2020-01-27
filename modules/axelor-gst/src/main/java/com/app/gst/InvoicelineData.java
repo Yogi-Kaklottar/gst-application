@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.bcel.generic.IfInstruction;
+
 public class InvoicelineData {
 
 	@Inject
@@ -58,4 +60,37 @@ public class InvoicelineData {
 		}
 		
 	}
+	public void setInvoicelinePartyChange(ActionRequest request, ActionResponse respons) {
+		try
+		{
+			Invoice invoice = request.getContext().asType(Invoice.class);
+			if(invoice!=null)
+			{
+					if(invoice.getInvoiceitemList().size()==0)
+						{
+						
+						}
+					else
+						{
+						  ArrayList<Invoiceline> il=(ArrayList<Invoiceline>) invoice.getInvoiceitemList();
+						 
+						  for(Invoiceline i:il)
+						  {
+							  
+							 i=setData.setPartyCompanyChangeData(invoice,i);
+						//	 System.err.println(i);						 
+							
+							 			 
+						  }
+						  invoice=setData.setInvoiceDataService(invoice, il);
+						}
+			}
+			respons.setValues(invoice);
+		}
+		catch (Exception e) {
+			//System.out.println("Method:setInvoicelinePartyChange");
+		}
+		
+	}
+	
 }

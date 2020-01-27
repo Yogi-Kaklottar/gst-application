@@ -5,7 +5,8 @@
    <dashlet action="gst.dashboard.invoice.paid.product"/>
    <dashlet action="gst.dashboard.invoice.state.customer"/>
    <dashlet action="gst.dashboard.invoice.status.type"/>
-   <dashlet action="gst.dashboard.invoice.unpaid.month.before" colSpan="12"/>
+   <dashlet action="gst.dashboard.invoice.status.type.amount" colSpan="6"/>
+   <dashlet action="gst.dashboard.invoice.unpaid.month.before" colSpan="6"/>
  </dashboard>
  <action-view name="gst.dashboard.invoice.unpaid.chart" title="unPaid Invoice Cutomer CHART">
        <view type="chart" name="dashboard-gst-unpaid-chart"/>       
@@ -18,6 +19,9 @@
  </action-view>
  <action-view name="gst.dashboard.invoice.status.type" title="status wise Invoice">       
        <view type="chart" name="dashboard-gst-invoice-status-chart"/>
+ </action-view>
+ <action-view name="gst.dashboard.invoice.status.type.amount" title="status wise Amount Invoice">       
+       <view type="chart" name="dashboard-gst-invoice-status-amount-chart"/>
  </action-view>
  <action-view name="gst.dashboard.invoice.unpaid.month.before" title="Unpaid One Month Before Invoice " model="com.axelor.gst.db.Invoice">       
        <view type="grid" name="gst-invoice-grid"/>
@@ -117,12 +121,27 @@
 <!--   Invoice per status: amount bar chart, number of invoices line chart -->
   
   
-   <chart name="dashboard-gst-invoice-status-chart" title="Total State Vice Invoice">
+   <chart name="dashboard-gst-invoice-status-chart" title="Total Status Vice Invoice">
    
     <dataset type="jpql">
      <![CDATA[
        SELECT
 		i.status as StausType,Count(i.id) as num
+		from Invoice i
+		Group By
+		  i.status
+		
+      ]]>
+    </dataset>
+    <category key="StausType" type="text" />
+    <series key="num" type="bar" />
+  </chart>
+  <chart name="dashboard-gst-invoice-status-amount-chart" title="Total Status Vice Amount Invoice">
+   
+    <dataset type="jpql">
+     <![CDATA[
+       SELECT
+		i.status as StausType,sum(i.grossAmount) as num
 		from Invoice i
 		Group By
 		  i.status

@@ -4,6 +4,9 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
 
   <grid name="gst-product-grid" title="product List"   model="com.axelor.gst.db.Product">
+  <toolbar>
+      <button name="GstProductSelectBtn" title="Create Invoice" />
+    </toolbar>
     <field name="image"></field>
   <field name="name"></field>
   <field name="code"></field>

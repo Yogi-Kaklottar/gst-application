@@ -39,11 +39,11 @@
        </panel>
      </panel>
      <panel>
-      <field name="company" />
+      <field name="company" onChange="action-gst-invoice-party-change-calculation"/>
       <field name="reference" />
       <field name="curruntDate" />
       <field name="priority" />
-      <field name="party" onChange="action-gst-invoice-party-onchange-defaultset"/>
+      <field name="party" onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation"/>
       <field name="partyContact" />
       <field name="invoiceAddress" colSpan="12" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
       <field name="isUseInVoiceAddressAsShipping" colSpan="4"/>
@@ -77,7 +77,7 @@
     <div class="card-footer">
         <span>{{curruntDate|date:'yyyy-MM-dd HH:mm:ss'}}</span>
     </div>
-    <div class="card-body">Gross Ammount{{grossAmount}}</div>
+    <div class="card-body">Gross Ammount:{{grossAmount}}</div>
     ]]></template>
   </kanban>
 
@@ -122,9 +122,9 @@
       <call class="com.app.gst.InvoicelineData" method="setInvoiceData" />
     </action-method>
 
-<!--     <action-method name="action-gst-invoice-party-change-calculation"> -->
-<!--       <call class="com.app.gst.InvoicelineData" method="setinvoiceRepeteData" /> -->
-<!--     </action-method> -->
+    <action-method name="action-gst-invoice-party-change-calculation">
+      <call class="com.app.gst.InvoicelineData" method="setInvoicelinePartyChange" />
+    </action-method>
  <action-report output="invoice" name="action-gst-invoice-btnClick" design="Invoice.rptdesign">
     <param name="id" expr="eval: __self__.id"/>
     <param name="location" expr='eval:com?.axelor?.app?.AppSettings?.get()?.getPath("file.upload.dir", "")+"/"'/>
