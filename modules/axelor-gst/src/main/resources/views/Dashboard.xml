@@ -5,6 +5,7 @@
    <dashlet action="gst.dashboard.invoice.paid.product"/>
    <dashlet action="gst.dashboard.invoice.state.customer"/>
    <dashlet action="gst.dashboard.invoice.status.type"/>
+   <dashlet action="gst.dashboard.invoice.unpaid.month.before" colSpan="12"/>
  </dashboard>
  <action-view name="gst.dashboard.invoice.unpaid.chart" title="unPaid Invoice Cutomer CHART">
        <view type="chart" name="dashboard-gst-unpaid-chart"/>       
@@ -18,6 +19,15 @@
  <action-view name="gst.dashboard.invoice.status.type" title="status wise Invoice">       
        <view type="chart" name="dashboard-gst-invoice-status-chart"/>
  </action-view>
+ <action-view name="gst.dashboard.invoice.unpaid.month.before" title="Unpaid One Month Before Invoice " model="com.axelor.gst.db.Invoice">       
+       <view type="grid" name="gst-invoice-grid"/>
+      <domain>self.status = 'Validated' and self.status != 'Paid' and self.curruntDate &lt; :oneMonthday</domain>
+      <context name="oneMonthday" expr="eval:LocalDate.now().withDayOfMonth(1)"/>
+ </action-view>
+ 
+ 
+<!--  Unpaid invoices per customer : Bar chart -->
+ 
 <chart name="dashboard-gst-unpaid-chart" title="Total Unpaid Customer" onInit="action-gst-chart-unpaid-customer-defaultdate">
     <search-fields>
       <field name="toDateT" type="date" title="To Date"  x-required="true" />
@@ -46,6 +56,7 @@
   </chart>
   
   
+<!--   Paid invoices per category per product: Bar chart -->
   
   
   <chart name="dashboard-gst-paid-chart" title="Total paid Product" onInit="action-gst-chart-unpaid-customer-defaultdate">
@@ -79,6 +90,8 @@
     <series key="num" type="bar" />
   </chart>
   
+  <!--   Customer per state: Pie chart -->
+  
   <chart name="dashboard-gst-state-chart" title="Total Sate Wise Customer">
    
     <dataset type="jpql">
@@ -99,6 +112,11 @@
     <category key="stateName" type="text" />
     <series key="partyCount" type="pie" />
   </chart>
+  
+
+<!--   Invoice per status: amount bar chart, number of invoices line chart -->
+  
+  
    <chart name="dashboard-gst-invoice-status-chart" title="Total State Vice Invoice">
    
     <dataset type="jpql">
