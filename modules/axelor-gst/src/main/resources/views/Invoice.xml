@@ -86,6 +86,7 @@
 
    <action-attrs name="action-gst-attrs-invoice-load">
     <attribute name="value" for="curruntDate" expr="eval: __datetime__" />
+    <attribute name="value" for="invoiceitemList" expr="eval: invoiceitemList"/>
    </action-attrs>
 
    <action-record name="action-gst-record-invoice-company-default" model="com.axelor.gst.db.Company">

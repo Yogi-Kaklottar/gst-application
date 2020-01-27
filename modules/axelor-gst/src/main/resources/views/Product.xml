@@ -5,7 +5,7 @@
 
   <grid name="gst-product-grid" title="product List"   model="com.axelor.gst.db.Product">
   <toolbar>
-      <button name="GstProductSelectBtn" title="Create Invoice" />
+      <button name="GstProductSelectBtn" title="Create Invoice" onClick="action-gst-product-select-Data-add-invoice-buttonClick" />
     </toolbar>
     <field name="image"></field>
   <field name="name"></field>
@@ -60,7 +60,9 @@
      ]]></template>
   </cards>
 
-
+<action-method name="action-gst-product-select-Data-add-invoice-buttonClick">
+      <call class="com.app.gst.InvoicelineData" method="setCreateNewInvoice" />
+    </action-method>
 
   <action-attrs name="Change-action-gst-attrs-productcategories">
     <attribute name="value" for="gstrate" expr="eval: __repo__(Productcategory).all().filter('self.id = ?',category).fetchOne().gstrate" />

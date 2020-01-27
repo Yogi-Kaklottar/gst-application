@@ -6,6 +6,11 @@ import com.axelor.gst.db.Contact;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.Invoiceline;
 import com.axelor.gst.db.Party;
+import com.axelor.gst.db.Product;
+import com.axelor.gst.db.repo.InvoicelineRepository;
+import com.axelor.gst.db.repo.ProductRepository;
+import com.axelor.gst.db.repo.ProductcategoryRepository;
+import com.axelor.meta.schema.actions.ActionView;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.google.inject.Inject;
@@ -91,6 +96,35 @@ public class InvoicelineData {
 			//System.out.println("Method:setInvoicelinePartyChange");
 		}
 		
+	}
+	public void setCreateNewInvoice(ActionRequest request, ActionResponse respons) {
+		Product pro;
+		List<Integer> list=(List<Integer>) request.getContext().get("_ids");	
+		ArrayList<Long> arraylist=new ArrayList<Long>();
+		for(Integer i:list)
+		{
+			arraylist.add((long)i);
+		}
+		ProductRepository p=new ProductRepository();
+		ArrayList<Invoiceline> invoicelinelist=new ArrayList<Invoiceline>();
+		for(Long l:arraylist)
+		{
+		   pro=p.find(l);
+		   Invoiceline il=new Invoiceline();
+		   il.setItem(pro.getCode()+""+pro.getName());
+		   il.setHsbn(pro.getHsbn());
+		   il.setPrice(pro.getSaleprice());
+		   il.setProduct(pro);
+		   il.setGstrate(pro.getGstrate());
+		   invoicelinelist.add(il);
+		}
+		Invoice invoice=new Invoice();
+		invoice.setInvoiceitemList(invoicelinelist);
+		respons.setView(ActionView.define("Invoice")
+				.model("com.axelor.gst.db.Invoice")
+				.add("form","gst-invoice-form")
+				.context("invoiceitemList",invoicelinelist)
+				.map());
 	}
 	
 }

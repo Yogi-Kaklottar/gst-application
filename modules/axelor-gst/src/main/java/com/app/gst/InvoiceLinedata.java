@@ -14,5 +14,5 @@ public class InvoiceLinedata extends InvoicelineRepository {
 		// TODO Auto-generated method stub
 		super.persist(entity);
 	}
-
+	
 }
