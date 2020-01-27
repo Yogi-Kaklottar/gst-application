@@ -3,9 +3,10 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
 
   <menuitem name="menu-gst-root" order="-100" title="Gst" icon="fa-users" icon-background="blue" />
-
+ <menuitem name="menu-gst-root-dashboard" title="Dashboard" parent="menu-gst-root" tag-style="important" action="dashboard.all"  />
    <menuitem name="menu-gst-root-party-root" order="-100" title="Party" parent="menu-gst-root" tag-style="important" />
 
+   
 
 <!-- Party Related Menu -->
 
@@ -150,7 +151,7 @@
 	
 <!-- 	DashBoard -->
 
-	 <menuitem name="menu-gst-root-dashboard" title="Dashboard" parent="menu-gst-root" tag-style="important" action="dashboard.all"  />
+	
 	
           <action-view name="dashboard.all" model="com.axelor.gst.db.Invoice" title="Chart">
         		  <view type="dashboard" name="gst-dashboard" />       
