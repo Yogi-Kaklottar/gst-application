@@ -32,7 +32,19 @@ public class SquenceDataManage {
         for (int i = size; i < sequence.getPadding(); i++) {
           nextnumber = "0" + nextnumber;
         }
-        String s = sequence.getPrefix() + nextnumber + sequence.getSuffix();
+        String s="";
+        if(sequence.getPrefix()==null)
+        {
+          s = ""+nextnumber;
+        }
+        else
+        {
+        	s=sequence.getPrefix()+nextnumber;
+        }
+        if(sequence.getSuffix()!=null)
+        {
+        	s=s+sequence.getSuffix();
+        }        
         n = n + 1;
         String num = "" + n;
         sequence.setNextnumber(num);
@@ -65,7 +77,19 @@ public class SquenceDataManage {
         for (int i = size; i < sequence.getPadding(); i++) {
           nextnumber = "0" + nextnumber;
         }
-        String s = sequence.getPrefix() + nextnumber + sequence.getSuffix();
+        String s="";
+        if(sequence.getPrefix()==null)
+        {
+          s = ""+nextnumber;
+        }
+        else
+        {
+        	s=sequence.getPrefix()+nextnumber;
+        }
+        if(sequence.getSuffix()!=null)
+        {
+        	s=s+sequence.getSuffix();
+        }        
         n = n + 1;
         String num = "" + n;
         sequence.setNextnumber(num);

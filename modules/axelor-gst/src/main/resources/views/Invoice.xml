@@ -32,9 +32,9 @@
        <field name="status" widget="NavSelect"  colSpan="12" />
        </panel>
        <panel colSpan="4">
-         <button name="btnValidate"  title="validate" showIf="status == 'Draft'" onClick="action-gst-invoice-onclick-validate" colSpan="12"/>
-         <button name="btnPaid"  title="Paid" showIf="status == 'Validated'" onClick="action-gst-invoice-onclick-paid" colSpan="12"/>
-         <button name="btnCancel"  title="Cancel"  onClick="action-gst-invoice-onclick-cancel" colSpan="12"/>
+         <button name="btnValidate"  title="validate" showIf="status == 'Draft'" onClick="action-gst-invoice-onclick-validate,save" colSpan="12"/>
+         <button name="btnPaid"  title="Paid" showIf="status == 'Validated'" onClick="action-gst-invoice-onclick-paid,save" colSpan="12"/>
+         <button name="btnCancel"  title="Cancel"  onClick="action-gst-invoice-onclick-cancel,save" colSpan="12"/>
 
        </panel>
      </panel>
@@ -43,7 +43,7 @@
       <field name="reference" />
       <field name="curruntDate" />
       <field name="priority" />
-      <field name="party" onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation"/>
+      <field name="party" onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation" />
       <field name="partyContact" />
       <field name="invoiceAddress" colSpan="12" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
       <field name="isUseInVoiceAddressAsShipping" colSpan="4"/>
@@ -64,7 +64,7 @@
     </form>
 
      <kanban name="gst-invoice-kanban" title="Invoice" model="com.axelor.gst.db.Invoice"
-    columnBy="status" sequenceBy="priority" draggable="true">
+    columnBy="status" sequenceBy="priority" draggable="false">
     <field name="reference" />
     <field name="company" />
     <field name="curruntDate" />
@@ -82,11 +82,10 @@
   </kanban>
 
 
-
-
    <action-attrs name="action-gst-attrs-invoice-load">
     <attribute name="value" for="curruntDate" expr="eval: __datetime__" />
     <attribute name="value" for="invoiceitemList" expr="eval: invoiceitemList"/>
+
    </action-attrs>
 
    <action-record name="action-gst-record-invoice-company-default" model="com.axelor.gst.db.Company">

@@ -9,40 +9,40 @@
    <dashlet action="gst.dashboard.invoice.unpaid.month.before" colSpan="6"/>
  </dashboard>
  <action-view name="gst.dashboard.invoice.unpaid.chart" title="unPaid Invoice Cutomer CHART">
-       <view type="chart" name="dashboard-gst-unpaid-chart"/>       
+       <view type="chart" name="dashboard-gst-unpaid-chart"/>
  </action-view>
-  <action-view name="gst.dashboard.invoice.paid.product" title="Paid invoices per category per product">       
+  <action-view name="gst.dashboard.invoice.paid.product" title="Paid invoices per category per product">
        <view type="chart" name="dashboard-gst-paid-chart"/>
  </action-view>
-  <action-view name="gst.dashboard.invoice.state.customer" title="state wise customer">       
+  <action-view name="gst.dashboard.invoice.state.customer" title="state wise customer">
        <view type="chart" name="dashboard-gst-state-chart"/>
  </action-view>
- <action-view name="gst.dashboard.invoice.status.type" title="status wise Invoice">       
+ <action-view name="gst.dashboard.invoice.status.type" title="status wise Invoice">
        <view type="chart" name="dashboard-gst-invoice-status-chart"/>
  </action-view>
- <action-view name="gst.dashboard.invoice.status.type.amount" title="status wise Amount Invoice">       
+ <action-view name="gst.dashboard.invoice.status.type.amount" title="status wise Amount Invoice">
        <view type="chart" name="dashboard-gst-invoice-status-amount-chart"/>
  </action-view>
- <action-view name="gst.dashboard.invoice.unpaid.month.before" title="Unpaid One Month Before Invoice " model="com.axelor.gst.db.Invoice">       
+ <action-view name="gst.dashboard.invoice.unpaid.month.before" title="Unpaid One Month Before Invoice " model="com.axelor.gst.db.Invoice">
        <view type="grid" name="gst-invoice-grid"/>
       <domain>self.status = 'Validated' and self.status != 'Paid' and self.curruntDate &lt; :oneMonthday</domain>
       <context name="oneMonthday" expr="eval:LocalDate.now().withDayOfMonth(1)"/>
  </action-view>
- 
- 
+
+
 <!--  Unpaid invoices per customer : Bar chart -->
- 
+
 <chart name="dashboard-gst-unpaid-chart" title="Total Unpaid Customer" onInit="action-gst-chart-unpaid-customer-defaultdate">
     <search-fields>
-      <field name="toDateT" type="date" title="To Date"  x-required="true" />
-      <field name="fromDateT" type="date" title="From Date"   x-required="true" />
+      <field name="toDateT" type="datetime" title="To Date"  x-required="true" />
+      <field name="fromDateT" type="datetime" title="From Date"   x-required="true" />
     </search-fields>
     <dataset type="jpql">
      <![CDATA[
       select p.name as Pname,COUNT(i.id) as number
       From Invoice i
       LEFT JOIN
-      		i.party as p
+          i.party as p
       where
         (i.status='Draft' OR i.status='Validated')
         and
@@ -50,114 +50,114 @@
         AND
          i.curruntDate <= :fromDateT
        group by
-          p.name 
-      
-      
+          p.name
+
+
       ]]>
     </dataset>
     <category key="Pname" type="text" />
     <series key="number" type="bar" />
   </chart>
-  
-  
+
+
 <!--   Paid invoices per category per product: Bar chart -->
-  
-  
+
+
   <chart name="dashboard-gst-paid-chart" title="Total paid Product" onInit="action-gst-chart-unpaid-customer-defaultdate">
     <search-fields>
        <field name="toDateT" type="datetime" title="From Date"   x-required="true" />
-      <field name="fromDateT" type="datetime" title="To Date"  x-required="true" />   
+      <field name="fromDateT" type="datetime" title="To Date"  x-required="true" />
     </search-fields>
     <dataset type="jpql">
      <![CDATA[
-       		select p.name,c.name as Cname,COUNT(il.invoice) as num
-       		from Invoiceline il
-       		LEFT JOIN
-       		    il.invoice  as i
-       		LEFT JOIN
-       		    il.product as p
-       		LEFT JOIN 
-       		    p.category as c
-       		WHERE
-       		     i.status='Paid' 
-       		     and
-       			 i.curruntDate >=:toDateT
-       			 AND
-         		i.curruntDate <= :fromDateT     
-         	GROUP BY
-         	     p.name,
-         	     c.name     
-       		     
+           select p.name,c.name as Cname,COUNT(il.invoice) as num
+           from Invoiceline il
+           LEFT JOIN
+               il.invoice  as i
+           LEFT JOIN
+               il.product as p
+           LEFT JOIN
+               p.category as c
+           WHERE
+                i.status='Paid'
+                and
+              i.curruntDate >=:toDateT
+              AND
+             i.curruntDate <= :fromDateT
+           GROUP BY
+                p.name,
+                c.name
+
       ]]>
     </dataset>
     <category key="Cname" type="text" />
     <series key="num" type="bar" />
   </chart>
-  
+
   <!--   Customer per state: Pie chart -->
-  
+
   <chart name="dashboard-gst-state-chart" title="Total Sate Wise Customer">
-   
+
     <dataset type="jpql">
      <![CDATA[
        SELECT
-		s.name as stateName,
-		COUNT(a.party.name) as partyCount
-		FROM 
-		Address a
-		LEFT JOIN
-		a.state as s
-		GROUP BY
-		s,
-		party
-		
+    s.name as stateName,
+    COUNT(a.party.name) as partyCount
+    FROM
+    Address a
+    LEFT JOIN
+    a.state as s
+    GROUP BY
+    s,
+    party
+
       ]]>
     </dataset>
     <category key="stateName" type="text" />
     <series key="partyCount" type="pie" />
   </chart>
-  
+
 
 <!--   Invoice per status: amount bar chart, number of invoices line chart -->
-  
-  
+
+
    <chart name="dashboard-gst-invoice-status-chart" title="Total Status Vice Invoice">
-   
+
     <dataset type="jpql">
      <![CDATA[
        SELECT
-		i.status as StausType,Count(i.id) as num
-		from Invoice i
-		Group By
-		  i.status
-		
+    i.status as StausType,Count(i.id) as num
+    from Invoice i
+    Group By
+      i.status
+
       ]]>
     </dataset>
     <category key="StausType" type="text" />
     <series key="num" type="bar" />
   </chart>
   <chart name="dashboard-gst-invoice-status-amount-chart" title="Total Status Vice Amount Invoice">
-   
+
     <dataset type="jpql">
      <![CDATA[
        SELECT
-		i.status as StausType,sum(i.grossAmount) as num
-		from Invoice i
-		Group By
-		  i.status
-		
+    i.status as StausType,sum(i.grossAmount) as num
+    from Invoice i
+    Group By
+      i.status
+
       ]]>
     </dataset>
     <category key="StausType" type="text" />
     <series key="num" type="bar" />
   </chart>
-  
-  
-  
- 
+
+
+
+
   <action-record name="action-gst-chart-unpaid-customer-defaultdate" model="com.axelor.gst.db.Invoice">
     <field name="toDateT" expr="eval:LocalDate.now().withDayOfMonth(1)" />
-    <field name="fromDateT" expr="eval:__date__" />
+    <field name="fromDateT" expr="eval:__datetime__" />
   </action-record>
-  
+
 </object-views>

@@ -6,7 +6,7 @@
  <menuitem name="menu-gst-root-dashboard" title="Dashboard" parent="menu-gst-root" tag-style="important" action="dashboard.all"  />
    <menuitem name="menu-gst-root-party-root" order="-100" title="Party" parent="menu-gst-root" tag-style="important" />
 
-   
+
 
 <!-- Party Related Menu -->
 
@@ -147,14 +147,14 @@
           <view type="form" name="gst-sequence-form" />
           <context name="json-enhance" expr="true" />
         </action-view>
-	
-	
+
+
 <!-- 	DashBoard -->
 
-	
-	
+
+
           <action-view name="dashboard.all" model="com.axelor.gst.db.Invoice" title="Chart">
-        		  <view type="dashboard" name="gst-dashboard" />       
+              <view type="dashboard" name="gst-dashboard" />
           </action-view>
 
  </object-views>
