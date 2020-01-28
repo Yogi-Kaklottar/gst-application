@@ -36,7 +36,7 @@
 
 
   <action-attrs name="Change-action-gst-attrs-product">
-    <attribute name="value" for="item" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().code+__repo__(Product).all().filter('self.id = ?',product).fetchOne().name" />
+    <attribute name="value" for="item" expr="eval: &quot;[&quot;+__repo__(Product).all().filter('self.id = ?',product).fetchOne().code+&quot;]&quot;+__repo__(Product).all().filter('self.id = ?',product).fetchOne().name" />
      <attribute name="value" for="gstrate" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().gstrate" />
      <attribute name="value" for="price" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().saleprice" />
       <attribute name="value" for="hsbn" expr="eval: __repo__(Product).all().filter('self.id = ?',product).fetchOne().hsbn" />
