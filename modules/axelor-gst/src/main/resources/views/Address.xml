@@ -18,11 +18,14 @@
      <field name="type" colSpan="12" />
      <field name="line1" colSpan="12"/>
      <field name="line2" colSpan="12"/>
-     <field name="country" colSpan="12"/>
-     <field name="state" colSpan="12"/>
-     <field name="city" colSpan="12"/>
+      <field name="city" colSpan="12" onChange="Change-action-gst-attrs-Address-city"/>
+     <field name="country" colSpan="12" readonly="true"/>
+     <field name="state" colSpan="12" readonly="true"/>
      <field name="pincode"/>
     </panel>
   </form>
-
+<action-attrs name="Change-action-gst-attrs-Address-city">
+    <attribute name="value" for="country" expr="eval: __this__.city.state.country" />
+    <attribute name="value" for="state" expr="eval: __this__.city.state" />
+  </action-attrs>
 </object-views>
