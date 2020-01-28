@@ -72,36 +72,36 @@ public class InvoicelineData {
   public void setCreateNewInvoice(ActionRequest request, ActionResponse respons) {
 
     try {
-      ArrayList<Invoiceline> invoicelinelist = new ArrayList<Invoiceline>();
-      Product pro;
-      List<Integer> list = (List<Integer>) request.getContext().get("_ids");
-      ArrayList<Long> arraylist = new ArrayList<Long>();
-      for (Integer i : list) {
-        arraylist.add((long) i);
-      }
-
-      ProductRepository p = new ProductRepository();
-
-      for (Long l : arraylist) {
-
-        pro = p.find(l);
-        System.out.println(pro);
-        Invoiceline il = new Invoiceline();
-        il.setItem(pro.getCode() + "" + pro.getName());
-        il.setHsbn(pro.getHsbn());
-        il.setPrice(pro.getSaleprice());
-        il.setProduct(pro);
-        il.setGstrate(pro.getGstrate());
-        invoicelinelist.add(il);
-      }
-      Invoice invoice = new Invoice();
-      invoice.setInvoiceitemList(invoicelinelist);
-      respons.setView(
-          ActionView.define("Invoice")
-              .model("com.axelor.gst.db.Invoice")
-              .add("form", "gst-invoice-form")
-              .context("invoiceitemList", invoicelinelist)
-              .map());
+		      ArrayList<Invoiceline> invoicelinelist = new ArrayList<Invoiceline>();
+		      Product pro;
+		      List<Integer> list = (List<Integer>) request.getContext().get("_ids");
+		      ArrayList<Long> arraylist = new ArrayList<Long>();
+		      for (Integer i : list) {
+		        arraylist.add((long) i);
+		      }
+		
+		      ProductRepository p = new ProductRepository();
+		
+		      for (Long l : arraylist) {
+		
+		        pro = p.find(l);
+		        System.out.println(pro);
+		        Invoiceline il = new Invoiceline();
+		        il.setItem(pro.getCode() + "" + pro.getName());
+		        il.setHsbn(pro.getHsbn());
+		        il.setPrice(pro.getSaleprice());
+		        il.setProduct(pro);
+		        il.setGstrate(pro.getGstrate());
+		        invoicelinelist.add(il);
+			      }
+			      Invoice invoice = new Invoice();
+			      invoice.setInvoiceitemList(invoicelinelist);
+			      respons.setView(
+			          ActionView.define("Invoice")
+			              .model("com.axelor.gst.db.Invoice")
+			              .add("form", "gst-invoice-form")
+			              .context("invoiceitemList", invoicelinelist)
+			              .map());
     } catch (Exception e) {
       // System.err.println("problem");
     }

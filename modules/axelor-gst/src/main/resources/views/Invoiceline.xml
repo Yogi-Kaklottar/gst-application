@@ -19,7 +19,7 @@
 
   <form name="gst-invoice-invoiceline-form" title="Invoiceline"   model="com.axelor.gst.db.Invoiceline" >
     <panel title="Overview">
-      <field name="product" onChange="Change-action-gst-attrs-product" />
+      <field name="product" onChange="Change-action-gst-attrs-product,onsave-action-gst-method-invoiceline" />
       <field name="hsbn"/>
       <field name="item"/>
       <field name="qty" onChange="onsave-action-gst-method-invoiceline"/>
