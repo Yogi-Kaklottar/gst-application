@@ -233,66 +233,11 @@
                     <text-property name="heading">shipping_address</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">id_1</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">id</text-property>
-                    <text-property name="heading">id</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">archived_1</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">archived</text-property>
-                    <text-property name="heading">archived</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">version_1</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">version</text-property>
-                    <text-property name="heading">version</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">created_on_1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">created_on</text-property>
-                    <text-property name="heading">created_on</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_on_1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">updated_on</text-property>
-                    <text-property name="heading">updated_on</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">attrs_1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">attrs</text-property>
-                    <text-property name="heading">attrs</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">gstin</property>
-                    <property name="alias">gstin</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">gstin</text-property>
-                    <text-property name="heading">gstin</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">name</property>
                     <property name="alias">name</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">name</text-property>
                     <text-property name="heading">name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">created_by_1</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">created_by</text-property>
-                    <text-property name="heading">created_by</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_by_1</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">updated_by</text-property>
-                    <text-property name="heading">updated_by</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">address</property>
@@ -307,36 +252,6 @@
                     <property name="analysis">measure</property>
                     <text-property name="displayName">logo</text-property>
                     <text-property name="heading">logo</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">id_2</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">id</text-property>
-                    <text-property name="heading">id</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">archived_2</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">archived</text-property>
-                    <text-property name="heading">archived</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">version_2</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">version</text-property>
-                    <text-property name="heading">version</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">created_on_2</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">created_on</text-property>
-                    <text-property name="heading">created_on</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_on_2</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">updated_on</text-property>
-                    <text-property name="heading">updated_on</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">description</property>
@@ -379,18 +294,6 @@
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">file_size_text</text-property>
                     <text-property name="heading">file_size_text</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">created_by_2</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">created_by</text-property>
-                    <text-property name="heading">created_by</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_by_2</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">updated_by</text-property>
-                    <text-property name="heading">updated_by</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">pname</property>
@@ -529,37 +432,37 @@
                     </structure>
                     <structure>
                         <property name="position">24</property>
-                        <property name="name">id_1</property>
+                        <property name="name">id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">25</property>
-                        <property name="name">archived_1</property>
+                        <property name="name">archived</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">26</property>
-                        <property name="name">version_1</property>
+                        <property name="name">version</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">27</property>
-                        <property name="name">created_on_1</property>
+                        <property name="name">created_on</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">28</property>
-                        <property name="name">updated_on_1</property>
+                        <property name="name">updated_on</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">29</property>
-                        <property name="name">attrs_1</property>
+                        <property name="name">attrs</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">30</property>
-                        <property name="name">gstin</property>
+                        <property name="name">gst_in</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -569,12 +472,12 @@
                     </structure>
                     <structure>
                         <property name="position">32</property>
-                        <property name="name">created_by_1</property>
+                        <property name="name">created_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">33</property>
-                        <property name="name">updated_by_1</property>
+                        <property name="name">updated_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
@@ -589,27 +492,27 @@
                     </structure>
                     <structure>
                         <property name="position">36</property>
-                        <property name="name">id_2</property>
+                        <property name="name">id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">37</property>
-                        <property name="name">archived_2</property>
+                        <property name="name">archived</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">38</property>
-                        <property name="name">version_2</property>
+                        <property name="name">version</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">39</property>
-                        <property name="name">created_on_2</property>
+                        <property name="name">created_on</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">40</property>
-                        <property name="name">updated_on_2</property>
+                        <property name="name">updated_on</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
@@ -644,12 +547,12 @@
                     </structure>
                     <structure>
                         <property name="position">47</property>
-                        <property name="name">created_by_2</property>
+                        <property name="name">created_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">48</property>
-                        <property name="name">updated_by_2</property>
+                        <property name="name">updated_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
@@ -666,343 +569,294 @@
                     <property name="name">id</property>
                     <property name="nativeName">id</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">archived</property>
                     <property name="nativeName">archived</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">version</property>
                     <property name="nativeName">version</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">created_on</property>
                     <property name="nativeName">created_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">updated_on</property>
                     <property name="nativeName">updated_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">attrs</property>
                     <property name="nativeName">attrs</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">1111</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">currunt_date</property>
                     <property name="nativeName">currunt_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">gross_amount</property>
                     <property name="nativeName">gross_amount</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">is_use_in_voice_address_as_shipping</property>
                     <property name="nativeName">is_use_in_voice_address_as_shipping</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">net_amount</property>
                     <property name="nativeName">net_amount</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">net_csgst</property>
                     <property name="nativeName">net_csgst</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">net_igst</property>
                     <property name="nativeName">net_igst</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">net_sgst</property>
                     <property name="nativeName">net_sgst</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">priority</property>
                     <property name="nativeName">priority</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">reference</property>
                     <property name="nativeName">reference</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">status</property>
                     <property name="nativeName">status</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">created_by</property>
                     <property name="nativeName">created_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">updated_by</property>
                     <property name="nativeName">updated_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">company</property>
                     <property name="nativeName">company</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">invoice_address</property>
                     <property name="nativeName">invoice_address</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">21</property>
                     <property name="name">party</property>
                     <property name="nativeName">party</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">22</property>
                     <property name="name">party_contact</property>
                     <property name="nativeName">party_contact</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">23</property>
                     <property name="name">shipping_address</property>
                     <property name="nativeName">shipping_address</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">24</property>
-                    <property name="name">id_1</property>
+                    <property name="name">id_24</property>
                     <property name="nativeName">id</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">25</property>
-                    <property name="name">archived_1</property>
+                    <property name="name">archived_25</property>
                     <property name="nativeName">archived</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">26</property>
-                    <property name="name">version_1</property>
+                    <property name="name">version_26</property>
                     <property name="nativeName">version</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">27</property>
-                    <property name="name">created_on_1</property>
+                    <property name="name">created_on_27</property>
                     <property name="nativeName">created_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">28</property>
-                    <property name="name">updated_on_1</property>
+                    <property name="name">updated_on_28</property>
                     <property name="nativeName">updated_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">29</property>
-                    <property name="name">attrs_1</property>
+                    <property name="name">attrs_29</property>
                     <property name="nativeName">attrs</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">1111</property>
                 </structure>
                 <structure>
                     <property name="position">30</property>
-                    <property name="name">gstin</property>
-                    <property name="nativeName">gstin</property>
+                    <property name="name">gst_in</property>
+                    <property name="nativeName">gst_in</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">31</property>
                     <property name="name">name</property>
                     <property name="nativeName">name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">32</property>
-                    <property name="name">created_by_1</property>
+                    <property name="name">created_by_32</property>
                     <property name="nativeName">created_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">33</property>
-                    <property name="name">updated_by_1</property>
+                    <property name="name">updated_by_33</property>
                     <property name="nativeName">updated_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">34</property>
                     <property name="name">address</property>
                     <property name="nativeName">address</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">35</property>
                     <property name="name">logo</property>
                     <property name="nativeName">logo</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">36</property>
-                    <property name="name">id_2</property>
+                    <property name="name">id_36</property>
                     <property name="nativeName">id</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">37</property>
-                    <property name="name">archived_2</property>
+                    <property name="name">archived_37</property>
                     <property name="nativeName">archived</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">38</property>
-                    <property name="name">version_2</property>
+                    <property name="name">version_38</property>
                     <property name="nativeName">version</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">39</property>
-                    <property name="name">created_on_2</property>
+                    <property name="name">created_on_39</property>
                     <property name="nativeName">created_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">40</property>
-                    <property name="name">updated_on_2</property>
+                    <property name="name">updated_on_40</property>
                     <property name="nativeName">updated_on</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">41</property>
                     <property name="name">description</property>
                     <property name="nativeName">description</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">42</property>
                     <property name="name">file_name</property>
                     <property name="nativeName">file_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">43</property>
                     <property name="name">file_path</property>
                     <property name="nativeName">file_path</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">44</property>
                     <property name="name">file_size</property>
                     <property name="nativeName">file_size</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">45</property>
                     <property name="name">file_type</property>
                     <property name="nativeName">file_type</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">46</property>
                     <property name="name">file_size_text</property>
                     <property name="nativeName">file_size_text</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">47</property>
-                    <property name="name">created_by_2</property>
+                    <property name="name">created_by_47</property>
                     <property name="nativeName">created_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">48</property>
-                    <property name="name">updated_by_2</property>
+                    <property name="name">updated_by_48</property>
                     <property name="nativeName">updated_by</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">49</property>
                     <property name="name">pname</property>
                     <property name="nativeName">pname</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select i.*,c.*,m.*,p.name as pname
@@ -1081,10 +935,10 @@ where i.company=c.id and m.id=c.logo and p.id=i.party and i.id=? ;]]></xml-prope
                     <text-property name="heading">gross_amount</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">gstrate</property>
+                    <property name="columnName">gst_rate</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">gstrate</text-property>
-                    <text-property name="heading">gstrate</text-property>
+                    <text-property name="displayName">gst_rate</text-property>
+                    <text-property name="heading">gst_rate</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">hsbn</property>
@@ -1209,7 +1063,7 @@ where i.company=c.id and m.id=c.logo and p.id=i.party and i.id=? ;]]></xml-prope
                     </structure>
                     <structure>
                         <property name="position">9</property>
-                        <property name="name">gstrate</property>
+                        <property name="name">gst_rate</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
@@ -1276,247 +1130,256 @@ where i.company=c.id and m.id=c.logo and p.id=i.party and i.id=? ;]]></xml-prope
                     <property name="name">id</property>
                     <property name="nativeName">id</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">archived</property>
                     <property name="nativeName">archived</property>
                     <property name="dataType">integer</property>
+                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">version</property>
                     <property name="nativeName">version</property>
                     <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">created_on</property>
                     <property name="nativeName">created_on</property>
                     <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">updated_on</property>
                     <property name="nativeName">updated_on</property>
                     <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">attrs</property>
                     <property name="nativeName">attrs</property>
                     <property name="dataType">string</property>
+                    <property name="nativeDataType">1111</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">cgst</property>
                     <property name="nativeName">cgst</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">gross_amount</property>
                     <property name="nativeName">gross_amount</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
-                    <property name="name">gstrate</property>
-                    <property name="nativeName">gstrate</property>
+                    <property name="name">gst_rate</property>
+                    <property name="nativeName">gst_rate</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">hsbn</property>
                     <property name="nativeName">hsbn</property>
                     <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">igst</property>
                     <property name="nativeName">igst</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">item</property>
                     <property name="nativeName">item</property>
                     <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">net_amount</property>
                     <property name="nativeName">net_amount</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">price</property>
                     <property name="nativeName">price</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">qty</property>
                     <property name="nativeName">qty</property>
                     <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">sgst</property>
                     <property name="nativeName">sgst</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">created_by</property>
                     <property name="nativeName">created_by</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">updated_by</property>
                     <property name="nativeName">updated_by</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">invoice</property>
                     <property name="nativeName">invoice</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">product</property>
                     <property name="nativeName">product</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select il.*
-from gst_invoiceline il,gst_invoice i
+from gst_invoice_line il,gst_invoice i
 where il.invoice=i.id and i.id=?;]]></xml-property>
-            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
-  <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
-</model:DesignValues>]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="company" id="1111">
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">id</property>
+                    <property name="alias">id</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">id</text-property>
                     <text-property name="heading">id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">archived</property>
+                    <property name="alias">archived</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">archived</text-property>
                     <text-property name="heading">archived</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">version</property>
+                    <property name="alias">version</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">version</text-property>
                     <text-property name="heading">version</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">created_on</property>
+                    <property name="alias">created_on</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">created_on</text-property>
                     <text-property name="heading">created_on</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">updated_on</property>
+                    <property name="alias">updated_on</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">updated_on</text-property>
                     <text-property name="heading">updated_on</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">attrs</property>
+                    <property name="alias">attrs</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">attrs</text-property>
                     <text-property name="heading">attrs</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">line1</property>
+                    <property name="alias">line1</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">line1</text-property>
                     <text-property name="heading">line1</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">line2</property>
+                    <property name="alias">line2</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">line2</text-property>
                     <text-property name="heading">line2</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">pincode</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">pincode</text-property>
-                    <text-property name="heading">pincode</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">type</property>
+                    <property name="alias">type</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">type</text-property>
                     <text-property name="heading">type</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">created_by</property>
+                    <property name="alias">created_by</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">created_by</text-property>
                     <text-property name="heading">created_by</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">updated_by</property>
+                    <property name="alias">updated_by</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">updated_by</text-property>
                     <text-property name="heading">updated_by</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">city</property>
+                    <property name="alias">city</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">city</text-property>
                     <text-property name="heading">city</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">country</property>
+                    <property name="alias">country</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">country</text-property>
                     <text-property name="heading">country</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">party</property>
+                    <property name="alias">party</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">party</text-property>
                     <text-property name="heading">party</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">state</property>
+                    <property name="alias">state</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">state</text-property>
                     <text-property name="heading">state</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">cname</property>
+                    <property name="alias">cname</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">cname</text-property>
                     <text-property name="heading">cname</text-property>
@@ -1568,56 +1431,61 @@ where il.invoice=i.id and i.id=?;]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">line1</property>
+                        <property name="name">full_address</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">8</property>
-                        <property name="name">line2</property>
+                        <property name="name">line1</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">9</property>
-                        <property name="name">pincode</property>
+                        <property name="name">line2</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">10</property>
-                        <property name="name">type</property>
+                        <property name="name">pin_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">11</property>
+                        <property name="name">type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
                         <property name="name">created_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">12</property>
+                        <property name="position">13</property>
                         <property name="name">updated_by</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">13</property>
+                        <property name="position">14</property>
                         <property name="name">city</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">15</property>
                         <property name="name">country</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">16</property>
                         <property name="name">party</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">16</property>
+                        <property name="position">17</property>
                         <property name="name">state</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">17</property>
+                        <property name="position">18</property>
                         <property name="name">cname</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -1663,66 +1531,72 @@ where il.invoice=i.id and i.id=?;]]></xml-property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
+                    <property name="name">full_address</property>
+                    <property name="nativeName">full_address</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
                     <property name="name">line1</property>
                     <property name="nativeName">line1</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">8</property>
+                    <property name="position">9</property>
                     <property name="name">line2</property>
                     <property name="nativeName">line2</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">9</property>
-                    <property name="name">pincode</property>
-                    <property name="nativeName">pincode</property>
+                    <property name="position">10</property>
+                    <property name="name">pin_code</property>
+                    <property name="nativeName">pin_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">10</property>
+                    <property name="position">11</property>
                     <property name="name">type</property>
                     <property name="nativeName">type</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">11</property>
+                    <property name="position">12</property>
                     <property name="name">created_by</property>
                     <property name="nativeName">created_by</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">12</property>
+                    <property name="position">13</property>
                     <property name="name">updated_by</property>
                     <property name="nativeName">updated_by</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">13</property>
+                    <property name="position">14</property>
                     <property name="name">city</property>
                     <property name="nativeName">city</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">14</property>
+                    <property name="position">15</property>
                     <property name="name">country</property>
                     <property name="nativeName">country</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">15</property>
+                    <property name="position">16</property>
                     <property name="name">party</property>
                     <property name="nativeName">party</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">16</property>
+                    <property name="position">17</property>
                     <property name="name">state</property>
                     <property name="nativeName">state</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">17</property>
+                    <property name="position">18</property>
                     <property name="name">cname</property>
                     <property name="nativeName">cname</property>
                     <property name="dataType">string</property>
@@ -1892,9 +1766,9 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">gstin</property>
-                    <text-property name="displayName">gstin</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["gstin"]</expression>
+                    <property name="name">gst_in</property>
+                    <text-property name="displayName">gst_in</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["gst_in"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
@@ -2462,9 +2336,9 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">gstrate</property>
-                    <text-property name="displayName">gstrate</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["gstrate"]</expression>
+                    <property name="name">gst_rate</property>
+                    <text-property name="displayName">gst_rate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["gst_rate"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
@@ -2757,45 +2631,9 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">id_1</property>
-                    <text-property name="displayName">id</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["id_1"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">archived_1</property>
-                    <text-property name="displayName">archived</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["archived_1"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">version_1</property>
-                    <text-property name="displayName">version</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["version_1"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">created_on_1</property>
-                    <text-property name="displayName">created_on</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["created_on_1"]</expression>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="name">updated_on_1</property>
-                    <text-property name="displayName">updated_on</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["updated_on_1"]</expression>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="name">attrs_1</property>
-                    <text-property name="displayName">attrs</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["attrs_1"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">gstin</property>
-                    <text-property name="displayName">gstin</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["gstin"]</expression>
+                    <property name="name">gst_in</property>
+                    <text-property name="displayName">gst_in</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["gst_in"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
@@ -2803,18 +2641,6 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <text-property name="displayName">name</text-property>
                     <expression name="expression" type="javascript">dataSetRow["name"]</expression>
                     <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">created_by_1</property>
-                    <text-property name="displayName">created_by</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["created_by_1"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">updated_by_1</property>
-                    <text-property name="displayName">updated_by</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["updated_by_1"]</expression>
-                    <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="name">address</property>
@@ -2827,36 +2653,6 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <text-property name="displayName">logo</text-property>
                     <expression name="expression" type="javascript">dataSetRow["logo"]</expression>
                     <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">id_2</property>
-                    <text-property name="displayName">id</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["id_2"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">archived_2</property>
-                    <text-property name="displayName">archived</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["archived_2"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">version_2</property>
-                    <text-property name="displayName">version</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["version_2"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">created_on_2</property>
-                    <text-property name="displayName">created_on</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["created_on_2"]</expression>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="name">updated_on_2</property>
-                    <text-property name="displayName">updated_on</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["updated_on_2"]</expression>
-                    <property name="dataType">date-time</property>
                 </structure>
                 <structure>
                     <property name="name">description</property>
@@ -2895,18 +2691,6 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">created_by_2</property>
-                    <text-property name="displayName">created_by</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["created_by_2"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">updated_by_2</property>
-                    <text-property name="displayName">updated_by</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["updated_by_2"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
                     <property name="name">pname</property>
                     <text-property name="displayName">pname</text-property>
                     <expression name="expression" type="javascript">dataSetRow["pname"]</expression>
@@ -2935,6 +2719,8 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
             </header>
             <detail>
                 <row id="1074">
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
                     <cell id="1075">
                         <label id="1100">
                             <property name="fontWeight">bold</property>
@@ -3034,6 +2820,12 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
+                    <property name="name">full_address</property>
+                    <text-property name="displayName">full_address</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["full_address"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
                     <property name="name">line1</property>
                     <text-property name="displayName">line1</text-property>
                     <expression name="expression" type="javascript">dataSetRow["line1"]</expression>
@@ -3046,9 +2838,9 @@ where a.id=c.address and i.company=c.id and i.id=?;]]></xml-property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">pincode</property>
-                    <text-property name="displayName">pincode</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["pincode"]</expression>
+                    <property name="name">pin_code</property>
+                    <text-property name="displayName">pin_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pin_code"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>

@@ -10,7 +10,7 @@
      <field name="country"/>
      <field name="state"/>
      <field name="city"/>
-     <field name="pincode"/>
+     <field name="pinCode"/>
   </grid>
 
   <form name="gst-address-form" title="address list"   model="com.axelor.gst.db.Address">
@@ -21,7 +21,7 @@
       <field name="city" colSpan="12" onChange="Change-action-gst-attrs-Address-city"/>
      <field name="country" colSpan="12" readonly="true"/>
      <field name="state" colSpan="12" readonly="true"/>
-     <field name="pincode"/>
+     <field name="pinCode"/>
     </panel>
   </form>
 <action-attrs name="Change-action-gst-attrs-Address-city">

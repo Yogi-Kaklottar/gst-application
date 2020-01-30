@@ -9,8 +9,8 @@
     <string name="name" required="true" />
     <many-to-one name="logo" ref="com.axelor.meta.db.MetaFile" />
     <one-to-many name="contactList" ref="com.axelor.gst.db.Contact" mappedBy="company"/>
-    <string name="gstin" min="15" max="15" />
-    <one-to-many name="bankdetailList"	ref="com.axelor.gst.db.Bankaccount" mappedBy="company"/>
+    <string name="gstIn" min="15" max="15" />
+    <one-to-many name="bankDetailList"	ref="com.axelor.gst.db.Bankaccount" mappedBy="company"/>
     <many-to-one name="address"	ref="com.axelor.gst.db.Address" />
   </entity>
 

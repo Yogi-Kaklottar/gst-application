@@ -8,7 +8,7 @@
   <field name="type" />
   <field name="primaryEmail" />
   <field name="secondaryEmail" />
-  <field name="primaryphone" />
+  <field name="primaryPhone" />
   <field name="secondaryPhone" />
 
   </grid>

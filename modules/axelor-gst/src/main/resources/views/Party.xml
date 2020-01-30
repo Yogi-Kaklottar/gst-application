@@ -27,10 +27,10 @@
          <editor x-viewer="true">
           <field name="name" />
           <field name="type" />
-          <field name="primaryemail" />
-          <field name="secondaryemail" />
-          <field name="primaryphone" />
-          <field name="secondaryphone" />
+          <field name="primaryEmail" />
+          <field name="secondaryEmail" />
+          <field name="primaryPhone" />
+          <field name="secondaryPhone" />
         </editor>
      </field>
 
@@ -49,6 +49,7 @@
   </form>
 
    <action-method name="action-gst-party-onsave">
-      <call class="com.app.gst.SquenceDataManage" method="setPartysequence" />
+<!--       <call class="com.app.gst.SquenceDataManage" method="setPartysequence" /> -->
+     <call class="com.axelor.app.gst.controller.GstSequenceController" method="setGstPartysequence" />
     </action-method>
 </object-views>

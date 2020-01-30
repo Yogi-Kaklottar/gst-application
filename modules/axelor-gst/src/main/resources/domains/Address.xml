@@ -8,13 +8,24 @@
 
   <entity name="Address">
     <string name="type" required="true"  selection="gst.address.type.select"/>
-    <string name="line1" required="true" namecolumn="true" />
+    <string name="line1" required="true"/>
     <string name="line2" />
     <many-to-one name="city" ref="com.axelor.gst.db.City"/>
     <many-to-one name="state" ref="com.axelor.gst.db.State" />
     <many-to-one name="country"	ref="com.axelor.gst.db.Country" required="true" />
-    <string name="pincode"/>
+    <string name="pinCode"/>
     <many-to-one name="party" ref="com.axelor.gst.db.Party"></many-to-one>
+     <string name="fullAddress" namecolumn="true" search="line1,city,state,country,pinCode">
+    <![CDATA[
+    if (line1 == null) {
+        return null;
+    }
+    if (pinCode == null) {
+        return line1 + "," + city.getName() + ","+ state.getName() + "," + country.getName();
+    }
+    return line1 +"," + city.getName() + ","+ state.getName() + "," + country.getName()+ "," + pinCode;
+    ]]></string>
+
   </entity>
 
 </domain-models>

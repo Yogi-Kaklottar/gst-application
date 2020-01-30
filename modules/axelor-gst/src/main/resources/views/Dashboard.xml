@@ -39,24 +39,24 @@
     </search-fields>
     <dataset type="jpql">
      <![CDATA[
-      select p.name as Pname,COUNT(i.id) as number
-      From Invoice i
+      select product.name as _productName,COUNT(invoice.id) as _number
+      From Invoice invoice
       LEFT JOIN
-          i.party as p
+          invoice.party as product
       where
-        (i.status='Draft' OR i.status='Validated')
+        (invoice.status='Draft' OR invoice.status='Validated')
         and
-        i.curruntDate >=:toDateT
+        invoice.curruntDate >=:toDateT
         AND
-         i.curruntDate <= :fromDateT
+         invoice.curruntDate <= :fromDateT
        group by
-          p.name
+          product.name
 
 
       ]]>
     </dataset>
-    <category key="Pname" type="text" />
-    <series key="number" type="bar" />
+    <category key="_productName" type="text" />
+    <series key="_number" type="bar" />
   </chart>
 
 
@@ -70,51 +70,50 @@
     </search-fields>
     <dataset type="jpql">
      <![CDATA[
-           select p.name,c.name as Cname,COUNT(il.invoice) as num
-           from Invoiceline il
+      select _product.name,_category.name as _categoryName,COUNT(invoiceLine.invoice) as _number
+           from InvoiceLine invoiceLine
            LEFT JOIN
-               il.invoice  as i
+               invoiceLine.invoice  as _invoice
            LEFT JOIN
-               il.product as p
+               invoiceLine.product as _product
            LEFT JOIN
-               p.category as c
-           WHERE
-                i.status='Paid'
-                and
-              i.curruntDate >=:toDateT
+               _product.category as _category
+            where
+               _invoice.status='Paid'
+               and
+              _invoice.curruntDate >= :toDateT
               AND
-             i.curruntDate <= :fromDateT
-           GROUP BY
-                p.name,
-                c.name
-
+             _invoice.curruntDate <= :fromDateT
+      GROUP BY
+                _product.name,
+              _category.name
       ]]>
     </dataset>
-    <category key="Cname" type="text" />
-    <series key="num" type="bar" />
+    <category key="_categoryName" type="text" />
+    <series key="_number" type="bar" />
   </chart>
 
   <!--   Customer per state: Pie chart -->
 
-  <chart name="dashboard-gst-state-chart" title="Total Sate Wise Customer">
+  <chart name="dashboard-gst-state-chart" title="Total State Wise Customer">
 
     <dataset type="jpql">
      <![CDATA[
        SELECT
-    s.name as stateName,
-    COUNT(a.party.name) as partyCount
+    state.name as _stateName,
+    COUNT(address.party.name) as _partyCount
     FROM
-    Address a
+    Address address
     LEFT JOIN
-    a.state as s
+    address.state as state
     GROUP BY
-    s,
-    party
+    state
+
 
       ]]>
     </dataset>
-    <category key="stateName" type="text" />
-    <series key="partyCount" type="pie" />
+    <category key="_stateName" type="text" />
+    <series key="_partyCount" type="pie" />
   </chart>
 
 
@@ -126,30 +125,30 @@
     <dataset type="jpql">
      <![CDATA[
        SELECT
-    i.status as StausType,Count(i.id) as num
-    from Invoice i
+    invoice.status as _stausType,Count(invoice.id) as _number
+    from Invoice invoice
     Group By
-      i.status
+      invoice.status
 
       ]]>
     </dataset>
-    <category key="StausType" type="text" />
-    <series key="num" type="bar" />
+    <category key="_stausType" type="text" />
+    <series key="_number" type="bar" />
   </chart>
   <chart name="dashboard-gst-invoice-status-amount-chart" title="Total Status Vice Amount Invoice">
 
     <dataset type="jpql">
      <![CDATA[
        SELECT
-    i.status as StausType,sum(i.grossAmount) as num
-    from Invoice i
+    invoice.status as _stausType,sum(invoice.grossAmount) as _number
+    from Invoice invoice
     Group By
-      i.status
+      invoice.status
 
       ]]>
     </dataset>
-    <category key="StausType" type="text" />
-    <series key="num" type="bar" />
+    <category key="_stausType" type="text" />
+    <series key="_number" type="bar" />
   </chart>
 
 

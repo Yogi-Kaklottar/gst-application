@@ -5,7 +5,7 @@
 
   <grid name="gst-company-Bankaccount-grid" title="Bank Account" model="com.axelor.gst.db.Bankaccount">
      <field name="bank"/>
-      <field name="accountno"/>
+      <field name="accountNo"/>
       <field name="ifsc"/>
       <field name="type"/>
       <field name="address"/>
@@ -14,7 +14,7 @@
   <form name="gst-company-Bankaccount-form" title="Bank Account"   model="com.axelor.gst.db.Bankaccount">
     <panel title="Overview">
     <field name="bank"></field>
-      <field name="accountno"/>
+      <field name="accountNo"/>
       <field name="ifsc"/>
       <field name="type"/>
       <field name="address" colSpan="12"/>

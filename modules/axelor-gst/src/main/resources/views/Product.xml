@@ -12,9 +12,9 @@
   <field name="code"></field>
   <field name="hsbn"></field>
   <field name="category"></field>
-  <field name="saleprice"></field>
-  <field name="costprice"></field>
-  <field name="gstrate"></field>
+  <field name="salePrice"></field>
+  <field name="costPrice"></field>
+  <field name="gstRate"></field>
 
   </grid>
 
@@ -28,9 +28,9 @@
       <field name="code"></field>
       <field name="hsbn"></field>
       <field name="category" onChange="Change-action-gst-attrs-productcategories"></field>
-      <field name="saleprice"></field>
-      <field name="costprice"></field>
-      <field name="gstrate"></field>
+      <field name="salePrice"></field>
+      <field name="costPrice"></field>
+      <field name="gstRate"></field>
 
     </panel>
   </form>
@@ -41,9 +41,9 @@
   <field name="code"></field>
   <field name="hsbn"></field>
   <field name="category"></field>
-  <field name="saleprice"></field>
-  <field name="costprice"></field>
-  <field name="gstrate"></field>
+  <field name="salePrice"></field>
+  <field name="costPrice"></field>
+  <field name="gstRate"></field>
     <template><![CDATA[
      <div class="span4 card-image">
      <img  ng-src="{{$image(image, 'image')}}">
@@ -53,19 +53,19 @@
         <span>Categories:{{category.name}}</span></br>
        <span> Code:{{code}}</span></br>
        <span>HSBN: {{hsbn}}</span></br>
-       <span> Saleprice:{{saleprice}}</span></br>
-       <span>Costprice:{{costprice}}</span></br>
-       <span>GST RATE:{{gstrate}}</span></br>
+       <span> Saleprice:{{salePrice}}</span></br>
+       <span>Costprice:{{costPrice}}</span></br>
+       <span>GST RATE:{{gstRate}}</span></br>
     </div>
      ]]></template>
   </cards>
 
 <action-method name="action-gst-product-select-Data-add-invoice-buttonClick">
-      <call class="com.app.gst.InvoicelineData" method="setCreateNewInvoice" />
+      <call class="com.axelor.app.gst.controller.GstInvoiceController" method="setCreateNewInvoice" />
     </action-method>
 
   <action-attrs name="Change-action-gst-attrs-productcategories">
-    <attribute name="value" for="gstrate" expr="eval: __repo__(Productcategory).all().filter('self.id = ?',category).fetchOne().gstrate" />
+    <attribute name="value" for="gstRate" expr="eval: __repo__(Productcategory).all().filter('self.id = ?',category).fetchOne().gstrate" />
   </action-attrs>
 <action-report output="product" name="action-gst-Product-btnClick" design="Product.rptdesign">
     <param name="id" expr="eval: __self__.id"/>

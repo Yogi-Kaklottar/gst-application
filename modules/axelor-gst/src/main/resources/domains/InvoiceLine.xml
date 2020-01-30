@@ -5,14 +5,14 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
 
   <module name="gst" package="com.axelor.gst.db" />
-  <entity name="Invoiceline" cacheable="true">
+  <entity name="InvoiceLine" cacheable="true">
       <many-to-one name="product" ref="com.axelor.gst.db.Product"></many-to-one>
       <string name="hsbn"></string>
       <string name="item" required="true"/>
       <integer name="qty" default="1"/>
       <decimal name="price" default="1"/>
       <decimal name="netAmount" readonly="true"/>
-      <decimal name="gstrate" readonly="true"/>
+      <decimal name="gstRate" readonly="true"/>
       <decimal name="igst" readonly="true"/>
       <decimal name="sgst" readonly="true"/>
       <decimal name="cgst" readonly="true"/>

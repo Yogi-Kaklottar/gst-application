@@ -20,7 +20,7 @@
     <field name="netCsgst" />
     <field name="netSgst" />
     <field name="grossAmount" />
-    <field name="invoiceitemList" />
+    <field name="invoiceItemList" />
 
   </grid>
 
@@ -36,32 +36,26 @@
         <field name="status" widget="NavSelect" colSpan="12" />
       </panel>
       <panel colSpan="4">
-        <button name="btnValidate" title="validate"
-          showIf="status == 'Draft'"
-          onClick="action-gst-invoice-onclick-validate,save" colSpan="12" />
-        <button name="btnPaid" title="Paid"
-          showIf="status == 'Validated'"
-          onClick="action-gst-invoice-onclick-paid,save" colSpan="12" />
-        <button name="btnCancel" title="Cancel"
-          onClick="action-gst-invoice-onclick-cancel,save" colSpan="12" />
+        <button name="btnValidate" title="validate" showIf="status == 'Draft'" onClick="action-gst-invoice-onclick-validate,save" colSpan="12" />
+        <button name="btnPaid" title="Paid" showIf="status == 'Validated'"    onClick="action-gst-invoice-onclick-paid,save" colSpan="12" />
+        <button name="btnCancel" title="Cancel"  onClick="action-gst-invoice-onclick-cancel,save" colSpan="12" />
 
       </panel>
     </panel>
     <panel>
-      <field name="company"
-        onChange="action-gst-invoice-party-change-calculation" />
+      <field name="company" onChange="action-gst-invoice-party-change-calculation" />
       <field name="reference" />
       <field name="curruntDate" />
       <field name="priority" />
-      <field name="party"	onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation" />
-      <field name="partyContact" />
-      <field name="invoiceAddress" colSpan="12"	onChange="change-action-gst-attrs-invoice-shippingaddress" />
-      <field name="isUseInVoiceAddressAsShipping" colSpan="4" />
-      <field name="shippingAddress" colSpan="8" />
+      <field name="party"	 onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation" />
+      <field name="partyContact" onSelect="action-gst-attrs-invoice-party-select-setContact" />
+      <field name="invoiceAddress" colSpan="12"	onChange="change-action-gst-attrs-invoice-shippingaddress" onSelect="action-gst-attrs-invoice-party-select-setInvoiceAddress"/>
+      <field name="isUseInVoiceAddressAsShipping" colSpan="4" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
+      <field name="shippingAddress" colSpan="8" onSelect="action-gst-attrs-invoice-party-select-setShippingAddress" />
 
     </panel>
     <panel>
-      <field name="invoiceitemList" colSpan="12"	onChange="action-gst-method-invoice-onsave" />
+      <field name="invoiceItemList" colSpan="12"	onChange="action-gst-method-invoice-onsave" />
     </panel>
     <panel>
       <field name="netAmount" />
@@ -99,10 +93,8 @@
 
 
   <action-attrs name="action-gst-attrs-invoice-load">
-    <attribute name="value" for="curruntDate"
-      expr="eval: __datetime__" />
-    <attribute name="value" for="invoiceitemList"
-      expr="eval: invoiceitemList" />
+    <attribute name="value" for="curruntDate"  expr="eval: __datetime__" />
+    <attribute name="value" for="invoiceItemList"      expr="eval: _invoiceItemList" />
 
   </action-attrs>
 
@@ -115,38 +107,46 @@
 
 
   <action-attrs name="change-action-gst-attrs-invoice-shippingaddress">
-    <attribute name="value" expr="eval: __this__.invoiceAddress"	for="shippingAddress" if="isUseInVoiceAddressAsShipping" />
+    <attribute name="value"  expr="eval: isUseInVoiceAddressAsShipping ?  __this__.invoiceAddress  : null" 	for="shippingAddress"  />
   </action-attrs>
 
 
+<action-attrs name="action-gst-attrs-invoice-party-select-setContact">
+    <attribute name="domain" for="partyContact"   expr="eval: &quot; self.party = :party &quot;" />
+  </action-attrs>
+
+<action-attrs name="action-gst-attrs-invoice-party-select-setInvoiceAddress">
+    <attribute name="domain" for="invoiceAddress"   expr="eval: &quot; self.party = :party &quot;" />
+  </action-attrs>
+
+  <action-attrs name="action-gst-attrs-invoice-party-select-setShippingAddress">
+    <attribute name="domain" for="shippingAddress"   expr="eval: &quot; self.party = :party &quot;" />
+  </action-attrs>
 
 
   <action-method name="action-gst-invoice-onclick-validate">
-    <call class="com.app.gst.SquenceDataManage"		method="setinvoiceSequence" />
+    <call class="com.axelor.app.gst.controller.GstSequenceController"		method="setGstInvoicesequence" />
   </action-method>
 
   <action-method name="action-gst-invoice-onclick-paid">
-    <call class="com.app.gst.SquenceDataManage"		method="setInvoicePaid" />
+    <call class="com.axelor.app.gst.controller.GstInvoiceController"		method="setInvoicePaid" />
   </action-method>
 
   <action-method name="action-gst-invoice-onclick-cancel">
-    <call class="com.app.gst.SquenceDataManage"		method="setInvoiceCancel" />
+    <call class="com.axelor.app.gst.controller.GstInvoiceController"		method="setInvoiceCancel" />
   </action-method>
 
 
-  <action-method
-    name="action-gst-invoice-party-onchange-defaultset">
-    <call class="com.app.gst.InvoicelineData"		method="setinvoiceDefaultfield" />
+  <action-method    name="action-gst-invoice-party-onchange-defaultset">
+    <call class="com.axelor.app.gst.controller.GstInvoiceController"		method="setInvoicePatryDefault" />
   </action-method>
 
   <action-method name="action-gst-method-invoice-onsave">
-    <call class="com.app.gst.InvoicelineData" method="setInvoiceData" />
+    <call class="com.axelor.app.gst.controller.GstInvoiceController" method="setInvoiceComputation" />
   </action-method>
 
-  <action-method
-    name="action-gst-invoice-party-change-calculation">
-    <call class="com.app.gst.InvoicelineData"
-      method="setInvoicelinePartyChange" />
+  <action-method    name="action-gst-invoice-party-change-calculation">
+    <call class="com.axelor.app.gst.controller.GstInvoiceController"    method="setInvoiceComputationComapanyPartyChange" />
   </action-method>
   <action-report output="invoice"
     name="action-gst-invoice-btnClick" design="Invoice.rptdesign">

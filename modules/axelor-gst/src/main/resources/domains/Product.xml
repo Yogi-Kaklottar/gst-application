@@ -10,9 +10,9 @@
     <string name="code" required="true"/>
     <string name="hsbn"/>
     <many-to-one name="category" ref="com.axelor.gst.db.Productcategory"></many-to-one>
-    <decimal name="saleprice"/>
-    <decimal name="costprice"/>
+    <decimal name="salePrice"/>
+    <decimal name="costPrice"/>
     <many-to-one name="image" ref="com.axelor.meta.db.MetaFile" />
-    <decimal name="gstrate"></decimal>
+    <decimal name="gstRate"></decimal>
   </entity>
 </domain-models>
