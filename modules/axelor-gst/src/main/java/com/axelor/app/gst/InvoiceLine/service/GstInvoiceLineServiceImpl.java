@@ -30,11 +30,8 @@ public class GstInvoiceLineServiceImpl implements GstInvoiceLineService {
                 .divide(new BigDecimal(2));
       } else {
         netcsgst = BigDecimal.ZERO;
-        netsgst =BigDecimal.ZERO;
-        netigst =
-            netamount
-                .multiply(invoiceLine.getGstRate().divide(new BigDecimal(100)));
-                
+        netsgst = BigDecimal.ZERO;
+        netigst = netamount.multiply(invoiceLine.getGstRate().divide(new BigDecimal(100)));
       }
 
       grossamount = grossamount.add(netamount).add(netcsgst).add(netigst).add(netsgst);

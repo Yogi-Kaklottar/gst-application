@@ -50,8 +50,8 @@
       <field name="party"	 onChange="action-gst-invoice-party-onchange-defaultset,action-gst-invoice-party-change-calculation" />
       <field name="partyContact" onSelect="action-gst-attrs-invoice-party-select-setContact" />
       <field name="invoiceAddress" colSpan="12"	onChange="change-action-gst-attrs-invoice-shippingaddress" onSelect="action-gst-attrs-invoice-party-select-setInvoiceAddress"/>
-      <field name="isUseInVoiceAddressAsShipping" colSpan="4" onChange="change-action-gst-attrs-invoice-shippingaddress"/>
-      <field name="shippingAddress" colSpan="8" onSelect="action-gst-attrs-invoice-party-select-setShippingAddress" />
+      <field name="isUseInVoiceAddressAsShipping" colSpan="4" onChange="change-action-gst-attrs-invoice-shippingaddress-boolean-Value,change-action-gst-attrs-invoice-shippingaddress"/>
+      <field name="shippingAddress" colSpan="12" onSelect="action-gst-attrs-invoice-party-select-setShippingAddress" />
 
     </panel>
     <panel>
@@ -107,9 +107,11 @@
 
 
   <action-attrs name="change-action-gst-attrs-invoice-shippingaddress">
-    <attribute name="value"  expr="eval: isUseInVoiceAddressAsShipping ?  __this__.invoiceAddress  : null" 	for="shippingAddress"  />
+    <attribute name="value"  expr="eval: __this__.invoiceAddress "  if="isUseInVoiceAddressAsShipping"	for="shippingAddress"  />
   </action-attrs>
-
+<action-method name="change-action-gst-attrs-invoice-shippingaddress-boolean-Value">
+    <call class="com.axelor.app.gst.controller.GstInvoiceController"		method="setAsBolleanShippingAddressSet"/>
+  </action-method>
 
 <action-attrs name="action-gst-attrs-invoice-party-select-setContact">
     <attribute name="domain" for="partyContact"   expr="eval: &quot; self.party = :party &quot;" />

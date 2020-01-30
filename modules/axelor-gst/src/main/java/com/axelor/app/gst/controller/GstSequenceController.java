@@ -40,7 +40,7 @@ public class GstSequenceController {
 
   public void setGstInvoicesequence(ActionRequest request, ActionResponse response) {
     try {
-      //  System.err.println("datagaya");
+
       Invoice invoice = request.getContext().asType(Invoice.class);
       if (invoice.getReference() == null) {
         MetaModel metaModel;
@@ -61,5 +61,17 @@ public class GstSequenceController {
     } catch (NullPointerException e) {
       response.setError("Invoice Model Are Not Available.");
     }
+  }
+
+  public void setSequenceNextNumber(ActionRequest request, ActionResponse response) {
+    Sequence sequence = request.getContext().asType(Sequence.class);
+    int n = sequence.getPadding();
+    String s = "";
+    for (int i = 1; i < n; i++) {
+      s = s + "0";
+    }
+    s = s + "1";
+    sequence.setNextnumber(s);
+    response.setValues(sequence);
   }
 }

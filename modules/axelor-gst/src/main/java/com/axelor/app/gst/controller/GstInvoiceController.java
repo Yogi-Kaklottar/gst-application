@@ -111,7 +111,7 @@ public class GstInvoiceController {
 
       for (Long l : arraylist) {
         product = Beans.get(ProductRepository.class).find(l);
-        System.out.println(product);
+        // System.out.println(product);
         InvoiceLine invoiceLine = new InvoiceLine();
         invoiceLine.setItem(product.getCode() + "" + product.getName());
         invoiceLine.setHsbn(product.getHsbn());
@@ -130,6 +130,18 @@ public class GstInvoiceController {
               .map());
     } catch (Exception e) {
       // System.err.println("problem");
+    }
+  }
+
+  public void setAsBolleanShippingAddressSet(ActionRequest request, ActionResponse respons) {
+
+    try {
+
+      Invoice invoice = request.getContext().asType(Invoice.class);
+      invoice = gstInvoiceService.setAsBooleanValueShippingAddress(invoice);
+      respons.setValues(invoice);
+    } catch (Exception e) {
+      System.out.println("problem");
     }
   }
 }

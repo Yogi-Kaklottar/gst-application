@@ -10,4 +10,6 @@ public interface GstInvoiceService {
   public Invoice setInvoiceComputation(Invoice invoice, List<InvoiceLine> invoiceLineList);
 
   public InvoiceLine setComputationPartyCompanyChange(Invoice invoice, InvoiceLine invoiceLine);
+
+  public Invoice setAsBooleanValueShippingAddress(Invoice invoice);
 }

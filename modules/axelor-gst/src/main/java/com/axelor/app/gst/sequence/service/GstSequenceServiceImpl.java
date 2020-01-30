@@ -33,8 +33,8 @@ public class GstSequenceServiceImpl implements GstSequenceService {
         stringReference = stringReference + sequence.getSuffix();
       }
       n = n + 1;
-      String num = "" + n;
-      sequence.setNextnumber(num);
+
+      sequence.setNextnumber(setSequenceNextNumber(n, sequence.getPadding()));
       gstSequenceRepository.save(sequence);
       party.setReference(stringReference);
     } catch (Exception e) {
@@ -65,14 +65,22 @@ public class GstSequenceServiceImpl implements GstSequenceService {
         stringReference = stringReference + sequence.getSuffix();
       }
       n = n + 1;
-      String num = "" + n;
-      sequence.setNextnumber(num);
+      sequence.setNextnumber(setSequenceNextNumber(n, sequence.getPadding()));
       gstSequenceRepository.save(sequence);
       invoice.setReference(stringReference);
-      // System.err.println("2");
+
     } catch (Exception e) {
-      // System.err.println(e.fillInStackTrace());
+
     }
     return invoice;
+  }
+
+  public String setSequenceNextNumber(int no, int padding) {
+    String nextNumber = "" + no;
+    int size = nextNumber.length();
+    for (int i = size; i < padding; i++) {
+      nextNumber = "0" + nextNumber;
+    }
+    return nextNumber;
   }
 }

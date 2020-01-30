@@ -114,10 +114,7 @@ public class GstInvoiceServiceImpl implements GstInvoiceService {
       } else {
         netcsgst = new BigDecimal(0);
         netsgst = new BigDecimal(0);
-        netigst =
-            netamount
-                .multiply(invoiceLine.getGstRate().divide(new BigDecimal(100)))
-                .divide(new BigDecimal(2));
+        netigst = netamount.multiply(invoiceLine.getGstRate().divide(new BigDecimal(100)));
       }
 
       grossamount = grossamount.add(netamount).add(netcsgst).add(netigst).add(netsgst);
@@ -135,5 +132,30 @@ public class GstInvoiceServiceImpl implements GstInvoiceService {
     }
 
     return invoiceLine;
+  }
+
+  @Override
+  public Invoice setAsBooleanValueShippingAddress(Invoice invoice) {
+    try {
+      Party party = invoice.getParty();
+      if (party == null) {
+        throw new Exception();
+      }
+      List<Address> addressList = party.getAddressList();
+      if (addressList.size() < 1) {
+        if (!invoice.getIsUseInVoiceAddressAsShipping()) {
+          for (Address address : addressList) {
+            if (address.getType().equals("default") || address.getType().equals("shipping")) {
+              invoice.setShippingAddress(address);
+              System.out.println("hhhhh");
+              break;
+            }
+          }
+        }
+      }
+    } catch (Exception e) {
+      System.out.println(e.fillInStackTrace());
+    }
+    return invoice;
   }
 }

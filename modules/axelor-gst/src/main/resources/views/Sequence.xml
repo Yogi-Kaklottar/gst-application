@@ -15,10 +15,13 @@
     <panel title="Overview">
      <field name="prefix"></field>
     <field name="suffix"></field>
-    <field name="padding"></field>
-     <field name="nextnumber"></field>
+    <field name="padding" onChange="action-gst-sequence-onchage-nextNumber"></field>
+     <field name="nextnumber" readonly="true"/>
      <field name="model"></field>
     </panel>
   </form>
 
+ <action-method name="action-gst-sequence-onchage-nextNumber">
+    <call class="com.axelor.app.gst.controller.GstSequenceController" method="setSequenceNextNumber" />
+  </action-method>
 </object-views>
