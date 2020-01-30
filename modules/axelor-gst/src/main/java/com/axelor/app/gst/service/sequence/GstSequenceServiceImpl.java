@@ -1,4 +1,4 @@
-package com.axelor.app.gst.sequence.service;
+package com.axelor.app.gst.service.sequence;
 
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.Party;

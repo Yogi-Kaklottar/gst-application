@@ -1,6 +1,6 @@
 package com.axelor.app.gst.controller;
 
-import com.axelor.app.gst.invoice.service.GstInvoiceService;
+import com.axelor.app.gst.service.invoice.GstInvoiceService;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.InvoiceLine;
 import com.axelor.gst.db.Product;

@@ -1,13 +1,13 @@
 package com.app.gst;
 
 import com.axelor.app.AxelorModule;
-import com.axelor.app.gst.InvoiceLine.service.GstInvoiceLineService;
-import com.axelor.app.gst.InvoiceLine.service.GstInvoiceLineServiceImpl;
-import com.axelor.app.gst.invoice.service.GstInvoiceService;
-import com.axelor.app.gst.invoice.service.GstInvoiceServiceImpl;
-import com.axelor.app.gst.sequence.service.GstSequenceRepository;
-import com.axelor.app.gst.sequence.service.GstSequenceService;
-import com.axelor.app.gst.sequence.service.GstSequenceServiceImpl;
+import com.axelor.app.gst.service.InvoiceLine.GstInvoiceLineService;
+import com.axelor.app.gst.service.InvoiceLine.GstInvoiceLineServiceImpl;
+import com.axelor.app.gst.service.invoice.GstInvoiceService;
+import com.axelor.app.gst.service.invoice.GstInvoiceServiceImpl;
+import com.axelor.app.gst.service.sequence.GstSequenceRepository;
+import com.axelor.app.gst.service.sequence.GstSequenceService;
+import com.axelor.app.gst.service.sequence.GstSequenceServiceImpl;
 import com.axelor.gst.db.repo.SequenceRepository;
 
 public class GstConfig extends AxelorModule {
